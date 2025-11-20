@@ -55,13 +55,6 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
   };
-	#
-	#  home-manager = {
-	#  	extraSpecialArgs = {ingerit inputs;};
-	# users = {
-	# 	"uber" = import ./home.nix;
-	# };
-	#  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

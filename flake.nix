@@ -4,19 +4,13 @@
 
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-
-		home-manager = {
-			url = "github:nix-community/home-manager";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
 	};
 
 	outputs = {nixpkgs, ...}: {
 		nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-			extraSpecialArguments = {inherit inputs;};
+			system = "x86_64-linux";
 			modules = [
 				./hosts/default/configuration.nix
-				inputs.homa-manager.nixosModules.default
 			];
 		};
 	};
