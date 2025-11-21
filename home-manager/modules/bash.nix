@@ -19,20 +19,10 @@
 
 		# Nix-related aliases
 		rebuild = "sudo nixos-rebuild switch --flake ${flake_path}";
-		hman = "home-manager switch ${flake_path}";
+		hman = "home-manager switch --flake ${flake_path}";
+		
 		# Git aliases
-		ga = "git add";
-		gb = "git branch";
-		gc = "git commit";
-		gch = "git checkout";
-		gd = "git diff";
-		gf = "git fetch";
-		gp = "git push";
-		gpl = "git pull";
-		grm = "git rm";
-		grs = "git restore";
-		gs = "git status";
-		gst = "git stash";
+		g = "git";
 		gsp = "git add .; git statsh; git pull";
 	};
 

@@ -1,21 +1,21 @@
-{ config, pkgs, ... }:
+{ homeStateVersion, user, ... }:
 
 {
 	imports = [
 		./modules
+		./home-packages.nix
 	];
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
-  home = {
-  	username = "uber";
-	homeDirectory = "/home/uber";
-	stateVersion = "25.05"; # Please read the comment before changing.
-	sessionVariables = {
-		EDITOR = "nvim";
-	};
-  };
 
-  # This value determines the Home Manager release that your configuration is
+	home = {
+		username = user;
+		homeDirectory = "/home/${user}";
+		stateVersion = homeStateVersion; # Please read the comment before changing.
+		sessionVariables = {
+			EDITOR = "nvim";
+		};
+	};
+
+	# This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
   #
