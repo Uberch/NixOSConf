@@ -4,7 +4,7 @@
 		enable = true;
 
 		userName = "Uberch";
-		UserEmail = "vam.molch@gmail.com";
+		userEmail = "vam.molch@gmail.com";
 
 		aliases = {
 			a = "add";

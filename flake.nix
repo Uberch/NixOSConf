@@ -37,6 +37,7 @@
 
 			modules = [
 				./hosts/${hostname}/configuration.nix
+				nixvim.nixosModules.nixvim
 			];
 		};
 	in {
