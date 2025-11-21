@@ -2,18 +2,26 @@
 
 	description = "Basic system configuration";
 
-	inputs = {
+	inputs = let
+	release = "release-25.05";
+	in {
 		# General package repo
-		nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+		nixpkgs.url = "github:nixos/nixpkgs/${release}";
 		
 		# Home-manager
 		home-manager = {
-			url = "github:nix-community/home-manager/release-25.05";
+			url = "github:nix-community/home-manager/${release}";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+
+		# Nixvim
+		nixvim = {
+			url = "github:nix-community/nixvim/${release}";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 	};
 
-	outputs = {self, nixpkgs, home-manager, ...}@inputs: let
+	outputs = {self, nixpkgs, home-manager, nixvim, ...}@inputs: let
 		# General variables
 		system = "x86_64-linux";
 		homeStateVersion = "25.05";
@@ -37,6 +45,8 @@
 		nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
 			modules = [
 				./hosts/nixos/configuration.nix
+				nixvim.nixosModules.nixvim
+				./nixvim/nixvim.nix
 			];
 		};
 
