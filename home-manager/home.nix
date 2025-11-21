@@ -77,6 +77,7 @@
   programs.home-manager.enable = true;
 
   programs.bash = {
+  	enable = true;
   	shellAliases =
 	let
 		flake_path = "~/nix";
@@ -110,6 +111,8 @@
 		gsp = "git add .; git statsh; git pull";
 	};
 
-	bashrcExtra = "set -o vi";
+	bashrcExtra = ''
+		set -o vi
+	'';
   };
 }
