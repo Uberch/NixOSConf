@@ -37,13 +37,14 @@
 
 			modules = [
 				./hosts/${hostname}/configuration.nix
-				nixvim.nixosModules.nixvim
 			];
 		};
 	in {
 		nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
 			modules = [
 				./hosts/nixos/configuration.nix
+				nixvim.nixosModules.nixvim
+				./nixvim/nixvim.nix
 			];
 		};
 
