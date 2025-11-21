@@ -2,21 +2,19 @@
 
 	description = "Basic system configuration";
 
-	inputs = let
-	release = "release-25.05";
-	in {
+	inputs = {
 		# General package repo
-		nixpkgs.url = "github:nixos/nixpkgs/${release}";
+		nixpkgs.url = "github:nixos/nixpkgs/release-25.05";
 		
 		# Home-manager
 		home-manager = {
-			url = "github:nix-community/home-manager/${release}";
+			url = "github:nix-community/home-manager/release-25.05";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
 		# Nixvim
 		nixvim = {
-			url = "github:nix-community/nixvim/${release}";
+			url = "github:nix-community/home-manager/release-25.05";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 	};
