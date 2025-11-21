@@ -43,8 +43,6 @@
 		nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
 			modules = [
 				./hosts/nixos/configuration.nix
-				nixvim.nixosModules.nixvim
-				./nixvim/nixvim.nix
 			];
 		};
 
@@ -56,5 +54,4 @@
 			];
 		};
 	};
-
 }
