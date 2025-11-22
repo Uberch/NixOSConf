@@ -1,5 +1,4 @@
-{ homeStateVersion, user, ... }:
-
+{ homeStateVersion, user, inputs, ... }:
 {
 	imports = [
 		./modules

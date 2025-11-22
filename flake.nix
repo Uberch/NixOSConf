@@ -14,12 +14,12 @@
 
 		# Nixvim
 		nixvim = {
-			url = "github:nix-community/home-manager/release-25.05";
+			url = "github:nix-community/nixvim/nixos-25.05";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 	};
 
-	outputs = {self, nixpkgs, home-manager, nixvim, ...}@inputs: let
+	outputs = {self, nixpkgs, home-manager, ...}@inputs: let
 		# General variables
 		system = "x86_64-linux";
 		homeStateVersion = "25.05";
@@ -43,8 +43,6 @@
 		nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
 			modules = [
 				./hosts/nixos/configuration.nix
-				nixvim.nixosModules.nixvim
-				./nixvim/nixvim.nix
 			];
 		};
 
