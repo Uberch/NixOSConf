@@ -1,12 +1,36 @@
 {
   programs.nixvim = {
-
     opts = {
-      # updatetime = 100;
-      fileencoding = "utf-8";
+      # Positioning
       number = true;
       relativenumber = true;
-      shiftwidth = 2;
+      ruler = true;
+      cursorline = true;
+
+      # Indentation
+      autoindent = true;
+      tabstop = 3;
+      softtabstop = 3;
+      shiftwidth = 3;
+      smartab = true;
+
+      # Mouse (unused for the moment)
+      # scrolloff = 8;
+      # ttyfast = true;
+      # mouse = "a";
+      # mousehide = true;
+
+      # Copy/Paste
+      # clipboard = unnamedplus;
+
+      # Search
+      showmatch = true;
+      ignorecase = true;
+      incsearch = true;
+      hlsearch = true;
+
+      # updatetime = 100;
+      fileencoding = "utf-8";
       breakindent = true;
       undofile = true;
       signcolumn = "yes";
@@ -14,15 +38,13 @@
       splitbelow = true;
       splitright = true;
       list = true;
-      listchars = {
-        tab = "▸ ";
-        trail = "·";
-        eol = "↵";
-        space = "·";
-      };
+      # listchars = {
+      #   tab = "▸ ";
+      #   trail = "·";
+      #   eol = "↵";
+      #   space = "·";
+      # };
       inccommand = "split";
-      cursorline = true;
-      scrolloff = 8;
     };
   };
 }
