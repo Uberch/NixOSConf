@@ -17,6 +17,7 @@
 
 			# Nix-related aliases
 			rebuild = "sudo nixos-rebuild switch --flake ${flake_path}";
+			test = "sudo nixos-rebuild test --flake ${flake_path}";
 			hman = "home-manager switch --flake ${flake_path}";
 			
 			# Git aliases

@@ -1,5 +1,4 @@
 {
-
 	description = "Basic system configuration";
 
 	inputs = {
@@ -43,6 +42,7 @@
 		nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
 			modules = [
 				./hosts/nixos/configuration.nix
+				./modules
 			];
 		};
 
