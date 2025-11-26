@@ -5,6 +5,5 @@
 		./kanata.nix
 		./localization.nix
 		./networking.nix
-		./packages.nix
 	];
 }

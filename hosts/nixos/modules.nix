@@ -1,0 +1,3 @@
+{config, ... }: {
+	kanata.enable = true;
+}
