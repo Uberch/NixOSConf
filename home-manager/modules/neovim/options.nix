@@ -9,7 +9,8 @@
 
 		# Indentation
 		autoindent = true;					# Carry indentation when entering new line
-		cindent = true;						# Perform c-style indentation formatting
+		cindent = false;						# Perform c-style indentation formatting
+		smartindent = true;					# Perform smart indentation formatting
 		tabstop = 3;							# Period for max width of tibe in characters
 		shiftwidth = 3;						# Width of tab
 		shiftround = true;					# Round indentation to several shiftwidth when using < or > commands
