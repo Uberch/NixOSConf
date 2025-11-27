@@ -5,5 +5,6 @@
 		./kanata.nix
 		./localization.nix
 		./networking.nix
+		./sshd.nix
 	];
 }
