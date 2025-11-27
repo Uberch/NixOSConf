@@ -57,7 +57,7 @@
 		# To play with
 		statusline = "";						# Format of status line
 		rulerformat = "";						# Defines format of ruler info
-		smarttab = true;
+		smarttab = false;
 		softtabstop = 3;
 	};
 }
