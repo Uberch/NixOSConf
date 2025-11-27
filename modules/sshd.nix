@@ -5,6 +5,7 @@ options = {
 };
 
 config = lib.mkIf config.sshd.enable {
+	environment.enableAllTerminfo = true;
 	services.openssh = {
 		enable = true;
 
