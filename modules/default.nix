@@ -7,5 +7,6 @@
 		./localization.nix
 		./networking.nix
 		./sshd.nix
+		./stylix.nix
 	];
 }

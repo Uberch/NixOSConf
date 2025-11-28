@@ -11,6 +11,12 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
+		# Stylix
+		stylix = {
+			url = "github:nix-community/stylix/release-25.05";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+
 		# Nixvim
 		nixvim = {
 			url = "github:nix-community/nixvim/nixos-25.05";
@@ -27,20 +33,21 @@
 			{ hostname = "nixos"; stateVersion = homeStateVersion; }
 		];
 
-		# Function to make system configuration
-		makeSystem = { hostname, stateVersion }: nixpkgs.lib.nixosSystem {
-			system = system;
-			specialArgs = {
-				inherit inputs stateVersion hostname user;
-			};
-
-			modules = [
-				./hosts/${hostname}/configuration.nix
-			];
-		};
+		# # Function to make system configuration
+		# makeSystem = { hostname, stateVersion }: nixpkgs.lib.nixosSystem {
+		# 	system = system;
+		# 	specialArgs = {
+		# 		inherit inputs stateVersion hostname user;
+		# 	};
+		#
+		# 	modules = [
+		# 		./hosts/${hostname}/configuration.nix
+		# 	];
+		# };
 	in {
 		nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
 			modules = [
+				inputs.stylix.nixosModules.stylix
 				./hosts/nixos/configuration.nix
 				./modules
 			];
@@ -50,6 +57,7 @@
 			pkgs = nixpkgs.legacyPackages.${system};
 			extraSpecialArgs = { inherit inputs homeStateVersion user; };
 			modules = [
+				inputs.stylix.homeModules.stylix
 				./home-manager/home.nix
 			];
 		};

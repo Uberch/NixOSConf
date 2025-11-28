@@ -3,8 +3,9 @@
 	# Import all your configuration modules here
 	imports = [ 
 		inputs.nixvim.homeManagerModules.nixvim
-		./options.nix
 		./keymaps.nix
+		./options.nix
+		./plugins.nix
 	];
 
 	programs.nixvim = {
