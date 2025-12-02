@@ -1,4 +1,4 @@
-{ config, pkgs, ... }@inputs: {
+{ config, pkgs, ... }: {
 	networking.hostName = "nixos";
 
 	imports =
@@ -16,13 +16,6 @@
 	services.xserver.xkb = {
 		layout = "us";
 		variant = "";
-	};
-
-	home-manager = {
-		extraSpecialArgs = {
-			inherit inputs;
-		};
-		users."uber" = import ../../home-manager/home.nix;
 	};
 
 	system.stateVersion = "25.05";
