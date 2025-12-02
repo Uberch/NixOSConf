@@ -24,47 +24,42 @@
 		};
 	};
 
-	outputs = {self, nixpkgs, home-manager, stylix, ...}@inputs: let
+	outputs = {self, nixpkgs, home-manager, ...}@inputs: let
 		# General variables
 		system = "x86_64-linux";
 		homeStateVersion = "25.05";
 		user = "uber";
 		hosts = [
 			{ hostname = "nixos"; stateVersion = homeStateVersion; }
-			{ hostname = "archivist"; stateVersion = homeStateVersion; }
-			{ hostname = "apprentice"; stateVersion = homeStateVersion; }
 		];
 
-		# Function to make system configuration
-		makeSystem = { hostname, stateVersion, ...}@inputs: nixpkgs.lib.nixosSystem {
-			system = system;
-			specialArgs = {
-				inherit inputs stateVersion hostname user;
-			};
-
+		# # Function to make system configuration
+		# makeSystem = { hostname, stateVersion }: nixpkgs.lib.nixosSystem {
+		# 	system = system;
+		# 	specialArgs = {
+		# 		inherit inputs stateVersion hostname user;
+		# 	};
+		#
+		# 	modules = [
+		# 		./hosts/${hostname}/configuration.nix
+		# 	];
+		# };
+	in {
+		nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
 			modules = [
-				./hosts/${hostname}/configuration.nix
-				home-manager.nixosModules.default
-				stylix.nixosModules.stylix
+				inputs.stylix.nixosModules.stylix
+				./hosts/nixos/configuration.nix
 				./modules
 			];
 		};
-	in {
-		nixosConfigurations = nixpkgs.lib.foldl'
-		(configs: host:
-			configs // {
-				"${host.hostname}" = makeSystem {
-					inherit (host) hostname stateVersion inputs;
-				};
-			}) {} hosts;
 
-		# homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration {
-		# 	pkgs = nixpkgs.legacyPackages.${system};
-		# 	extraSpecialArgs = { inherit inputs homeStateVersion user; };
-		# 	modules = [
-		# 		inputs.stylix.homeModules.stylix
-		# 		./home-manager/home.nix
-		# 	];
-		# };
+		homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration {
+			pkgs = nixpkgs.legacyPackages.${system};
+			extraSpecialArgs = { inherit inputs homeStateVersion user; };
+			modules = [
+				inputs.stylix.homeModules.stylix
+				./home-manager/home.nix
+			];
+		};
 	};
 }
