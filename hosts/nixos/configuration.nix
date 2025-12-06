@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }@inputs: {
 	networking.hostName = "nixos";
 
 	imports =

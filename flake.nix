@@ -24,42 +24,63 @@
 		};
 	};
 
-	outputs = {self, nixpkgs, home-manager, ...}@inputs: let
+	outputs = { self, nixpkgs, home-manager, stylix, nixvim, ... }@inputs: let
 		# General variables
 		system = "x86_64-linux";
-		homeStateVersion = "25.05";
-		user = "uber";
+		generalStateVersion = "25.05";
 		hosts = [
-			{ hostname = "nixos"; stateVersion = homeStateVersion; }
+			{ hostname = "nixos";		username = "uber";	stateVersion = generalStateVersion; }
+			{ hostname = "archivist";	username = "avatar";	stateVersion = generalStateVersion; }
+			{ hostname = "apprentice";	username = "uber";	stateVersion = generalStateVersion; }
+		];
+		users = [
+			{ username = "uber";		stateVersion = generalStateVersion; }
 		];
 
-		# # Function to make system configuration
-		# makeSystem = { hostname, stateVersion }: nixpkgs.lib.nixosSystem {
-		# 	system = system;
-		# 	specialArgs = {
-		# 		inherit inputs stateVersion hostname user;
-		# 	};
-		#
-		# 	modules = [
-		# 		./hosts/${hostname}/configuration.nix
-		# 	];
-		# };
-	in {
-		nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+		# Function to make system configuration
+		makeSystem = { hostname, username, stateVersion }: nixpkgs.lib.nixosSystem {
+			system = system;
+			specialArgs = {
+				inherit hostname username stateVersion;
+			};
+
 			modules = [
-				inputs.stylix.nixosModules.stylix
-				./hosts/nixos/configuration.nix
-				./modules
+				./hosts
+				nixvim.nixosModules.nixvim
+				stylix.nixosModules.stylix
 			];
 		};
 
-		homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration {
-			pkgs = nixpkgs.legacyPackages.${system};
-			extraSpecialArgs = { inherit inputs homeStateVersion user; };
+		# Function to make system configuration
+		makeHome = { username, stateVersion }: home-manager.lib.homeManagerConfiguration {
+			extraSpecialArgs = {
+				inherit username stateVersion;
+			};
+
 			modules = [
-				inputs.stylix.homeModules.stylix
-				./home-manager/home.nix
+				./users
+				nixvim.homeModules.nixvim
+				stylix.homeModules.stylix
 			];
+
+			pkgs = nixpkgs.legacyPackages.${system};
 		};
+
+	in {
+		# Make nixos configurations
+		nixosConfigurations = nixpkgs.lib.foldl' (configs: host:
+			configs // {
+				"${host.hostname}" = makeSystem {
+					inherit (host) hostname username stateVersion;
+				};
+			}) {} hosts;
+
+		# Make home manager configurations
+		homeConfigurations = nixpkgs.lib.foldl' (configs: user:
+			configs // { 
+				"${user.username}" = makeHome {
+					inherit (user) username stateVersion;
+				};
+			}) {} users;
 	};
 }
