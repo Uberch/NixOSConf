@@ -3,5 +3,7 @@
 
 	environment.systemPackages = with pkgs; [
 		kanata
+		hyprland
+		firefox
 	];
 }

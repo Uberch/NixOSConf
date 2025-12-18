@@ -22,9 +22,15 @@
 			url = "github:nix-community/nixvim/nixos-25.05";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+
+		# Hyprland
+		hyprland = {
+			url = "github:hyprwm/Hyprland";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 	};
 
-	outputs = { self, nixpkgs, home-manager, stylix, nixvim, ... }@inputs: let
+	outputs = { self, nixpkgs, home-manager, stylix, nixvim, hyprland, ... }@inputs: let
 		# General variables
 		system = "x86_64-linux";
 		generalStateVersion = "25.05";
@@ -41,7 +47,7 @@
 		makeSystem = { hostname, username, stateVersion }: nixpkgs.lib.nixosSystem {
 			system = system;
 			specialArgs = {
-				inherit hostname username stateVersion;
+				inherit hostname username stateVersion hyprland;
 			};
 
 			modules = [
