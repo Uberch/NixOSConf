@@ -1,0 +1,14 @@
+* checking system
+Linux detected
+firewall type is iptables
+* checking already running DPI bypass processes
+* checking privileges
+root is required
+elevating with sudo
+* checking system
+Linux detected
+firewall type is iptables
+* checking already running DPI bypass processes
+* checking privileges
+* checking prerequisites
+* checking DNS
