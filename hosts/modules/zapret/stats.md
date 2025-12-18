@@ -1,4 +1,5 @@
 | strat | youtube | discord | nixos |
+| --- | :---: | :---: | :---: |
 | SPb |
 | orig | [x] | [x] | [x] |
 | alt1 | [] | [x] | [] |
