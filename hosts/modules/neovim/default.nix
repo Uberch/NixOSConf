@@ -1,10 +1,4 @@
 { config, ... }: {
-options = {
-	neovim.enable =
-		lib.mkEnableOption "Enables neovim configuration";
-};
-
-config = lib.mkIf config.neovim.enable {
 	# Import all your configuration modules here
 	imports = [ 
 		./keymaps.nix
@@ -16,5 +10,4 @@ config = lib.mkIf config.neovim.enable {
 		enable = true;
 		defaultEditor = true;
 	};
-};
 }
