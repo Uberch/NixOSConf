@@ -28,6 +28,23 @@ config = lib.mkIf config.hyprland.enable {
 				"$sft" = "SHIFT";
 				"$ctl" = "CTRL";
 
+				input = {
+					kb_layout = "us,ru";
+					kb_variant = ",";
+					kb_options = "grp:caps_toggle";
+					numlock_by_default = false;
+					mouse_refocus = true;
+					resolve_binds_by_sym = false;
+
+					follow_mouse = 1;
+					touchpad = {
+						natural_scroll = "yes";
+						clickfinger_behavior = false;
+						scroll_factor = 1;
+					};
+					sensitivity = 0;
+				};
+
 				bind = [
 					# Worspace navigation
 					"$mod, 1, workspace, 1"
