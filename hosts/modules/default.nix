@@ -10,5 +10,6 @@
 		./networking.nix
 		./sshd.nix
 		./stylix.nix
+		./zapret.nix
 	];
 }
