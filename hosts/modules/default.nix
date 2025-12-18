@@ -2,6 +2,7 @@
 	imports = [
 		./neovim
 		./users
+		./zapret
 		./experimental.nix
 		./garbage.nix
 		./general_packages.nix
@@ -10,6 +11,5 @@
 		./networking.nix
 		./sshd.nix
 		./stylix.nix
-		./zapret.nix
 	];
 }
