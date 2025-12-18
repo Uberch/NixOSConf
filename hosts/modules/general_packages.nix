@@ -4,5 +4,6 @@
 		openssh
 		home-manager
 		tmux
+		zapret
 	];
 }
