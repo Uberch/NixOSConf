@@ -36,7 +36,14 @@
 		# };
 	};
 
-	outputs = { self, nixpkgs, home-manager, stylix, nixvim, ... }@inputs: let
+	outputs = {
+			nixpkgs,
+			home-manager,
+			stylix,
+			nixvim,
+			nvf,
+			...
+			}: let
 		# General variables
 		system = "x86_64-linux";
 		generalStateVersion = "25.05";
@@ -73,6 +80,7 @@
 			modules = [
 				./users
 				stylix.homeModules.stylix
+				nvf.homeManagerModules.nvf
 			];
 
 			pkgs = nixpkgs.legacyPackages.${system};
@@ -94,12 +102,5 @@
 					inherit (user) username stateVersion;
 				};
 			}) {} users;
-
-		# Making neovim package to run as nix run
-		packages.${system}.default =
-			(nvf.lib.neovimConfiguration {
-				pkgs = nixpkgs.legacyPackages.${system};
-				modules = [ ./nvf ];
-			}).neovim;
 	};
 }

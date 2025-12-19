@@ -1,5 +1,6 @@
 {
 	imports = [
+		./nvf
 		./terminal
 		./bash.nix
 		./git.nix

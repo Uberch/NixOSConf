@@ -4,7 +4,10 @@
 		enable = false;
 
 		rifle = [
-			"match *.nix = nvim $@"
+			{
+				condition = "ext nix";
+				command = "nvim -- $@";
+			}
 		];
 	};
 }

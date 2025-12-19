@@ -1,4 +1,4 @@
-{ config, pkgs, hostname, stateVersion, ... }@inputs: {
+{ hostname, stateVersion, ... }: {
 	imports =
 		[ # Include the results of the hardware scan.
 			./hardware-configuration.nix

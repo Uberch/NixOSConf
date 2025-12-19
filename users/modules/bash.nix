@@ -7,6 +7,7 @@
 		in {
 			# General purpose
 			v = "$EDITOR";
+			nixv = "nix run ${flake_path}";
 			c = "clear";
 			ll = "ls -la";
 			rg = "ranger";
@@ -15,14 +16,19 @@
 			sdn = "systemctl poweroff";
 			rbt = "reboot";
 
-			# Nix-related aliases
+			# Nix-related
 			rebuild = "sudo nixos-rebuild switch --flake ${flake_path}";
 			nixtest = "sudo nixos-rebuild test --flake ${flake_path}";
 			hman = "home-manager switch --flake ${flake_path}#uber";
 			
-			# Git aliases
+			# Git
 			g = "git";
-			gsp = "git add .; git statsh; git pull";
+
+			# Tmux
+			tn = "tmux new-session";
+			ta = "tmux attach-seesion";
+			tl = "tmux list-sessions";
+			tk = "tmux kill-server";
 		};
 
 		bashrcExtra = ''
