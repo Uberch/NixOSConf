@@ -1,5 +1,4 @@
-{ config, pkgs, ... }@inputs: {
-	networking.hostName = "apprentice";
+{ config, pkgs, hostname, stateVersion, ... }@inputs: {
 	programs.hyprland = {
 		enable = true;
 		# package = inputs.hyprland.packages."${pkgs.system}".hyprland;
@@ -22,5 +21,6 @@
 		variant = "";
 	};
 
-	system.stateVersion = "25.05";
+	networking.hostName = hostname;
+	system.stateVersion = stateVersion;
 }

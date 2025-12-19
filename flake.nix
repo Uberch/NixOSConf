@@ -24,30 +24,31 @@
 		};
 
 		# Hyprland
-		hyprland = {
-			url = "github:hyprwm/Hyprland";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		# hyprland = {
+		# 	url = "github:hyprwm/Hyprland";
+		# 	inputs.nixpkgs.follows = "nixpkgs";
+		# };
 	};
 
 	outputs = { self, nixpkgs, home-manager, stylix, nixvim, hyprland, ... }@inputs: let
 		# General variables
 		system = "x86_64-linux";
 		generalStateVersion = "25.05";
+		newStateVersion = "25.11";
 		hosts = [
-			{ hostname = "nixos";		username = "uber";	stateVersion = generalStateVersion; }
-			{ hostname = "archivist";	username = "avatar";	stateVersion = generalStateVersion; }
+			{ hostname = "archivist";	username = "avatar";	stateVersion = newStateVersion; }
 			{ hostname = "apprentice";	username = "uber";	stateVersion = generalStateVersion; }
 		];
 		users = [
 			{ username = "uber";		stateVersion = generalStateVersion; }
+			{ username = "avatar";	stateVersion = newStateVersion; }
 		];
 
 		# Function to make system configuration
 		makeSystem = { hostname, username, stateVersion }: nixpkgs.lib.nixosSystem {
 			system = system;
 			specialArgs = {
-				inherit hostname username stateVersion hyprland;
+				inherit hostname username stateVersion;
 			};
 
 			modules = [
@@ -57,7 +58,7 @@
 			];
 		};
 
-		# Function to make system configuration
+		# Function to make home manager configuration
 		makeHome = { username, stateVersion }: home-manager.lib.homeManagerConfiguration {
 			extraSpecialArgs = {
 				inherit username stateVersion;

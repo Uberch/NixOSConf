@@ -1,0 +1,3 @@
+{ config, ... }: {
+	hyprland.enable = false;
+}

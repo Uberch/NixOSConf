@@ -1,6 +1,4 @@
-{ config, pkgs, ... }@inputs: {
-	networking.hostName = "nixos";
-
+{ config, pkgs, hostname, stateVersion, ... }@inputs: {
 	imports =
 		[ # Include the results of the hardware scan.
 			./hardware-configuration.nix
@@ -18,5 +16,6 @@
 		variant = "";
 	};
 
-	system.stateVersion = "25.05";
+	networking.hostName = hostname;
+	system.stateVersion = stateVersion;
 }

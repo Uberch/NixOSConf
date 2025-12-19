@@ -17,7 +17,6 @@ config = lib.mkIf config.hyprland.enable {
 	# in {
 		home.packages = with pkgs; [
 			kitty
-			# Telegram
 		];
 
 		wayland.windowManager.hyprland = {

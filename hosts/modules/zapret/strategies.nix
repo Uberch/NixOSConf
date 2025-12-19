@@ -702,11 +702,11 @@
 		];
 	in general-strategy
 		# ;
-		# ++ orig;
+		++ orig;
 		# ++ alt1;
 		# ++ alt2;
 		# ++ alt3;
-		++ alt4;			# Finally fixing access to nixos.org sites (I killed whole day for this)
+		# ++ alt4;			# Finally fixing access to nixos.org sites (I killed whole day for this)
 		# ++ alt5;
 		# ++ alt6;
 		# ++ alt7;
