@@ -1,6 +1,6 @@
 {
 	imports = [
-		./neovim
+		./terminal
 		./bash.nix
 		./git.nix
 		./hyprland.nix

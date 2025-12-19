@@ -15,10 +15,6 @@ config = lib.mkIf config.hyprland.enable {
 	# 		${pkgs.swww}/bin/swww img ${./bloodrock-steppes.png} &
 	# 	'';
 	# in {
-		home.packages = with pkgs; [
-			kitty
-		];
-
 		wayland.windowManager.hyprland = {
 			enable = true;
 			settings = {

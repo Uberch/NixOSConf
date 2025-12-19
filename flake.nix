@@ -17,20 +17,26 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
-		# Nixvim
+		# Nixvim for system-wide general-purpose file editing
 		nixvim = {
 			url = "github:nix-community/nixvim/nixos-25.05";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
-		# Hyprland
-		hyprland = {
-			url = "github:hyprwm/Hyprland";
+		# NVF especially for development
+		nvf = {
+			url = "github:notashelf/nvf";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+
+		# Hyprland
+		# hyprland = {
+		# 	url = "github:hyprwm/Hyprland";
+		# 	inputs.nixpkgs.follows = "nixpkgs";
+		# };
 	};
 
-	outputs = { self, nixpkgs, home-manager, stylix, nixvim, hyprland, ... }@inputs: let
+	outputs = { self, nixpkgs, home-manager, stylix, nixvim, ... }@inputs: let
 		# General variables
 		system = "x86_64-linux";
 		generalStateVersion = "25.05";
@@ -66,7 +72,6 @@
 
 			modules = [
 				./users
-				nixvim.homeModules.nixvim
 				stylix.homeModules.stylix
 			];
 
@@ -89,5 +94,12 @@
 					inherit (user) username stateVersion;
 				};
 			}) {} users;
+
+		# Making neovim package to run as nix run
+		packages.${system}.default =
+			(nvf.lib.neovimConfiguration {
+				pkgs = nixpkgs.legacyPackages.${system};
+				modules = [ ./nvf ];
+			}).neovim;
 	};
 }

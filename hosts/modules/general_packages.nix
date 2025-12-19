@@ -5,7 +5,7 @@
 		home-manager
 		tmux
 		zapret
-		neovim
 		ranger
+		nixd
 	];
 }
