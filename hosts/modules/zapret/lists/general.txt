@@ -44,4 +44,5 @@ betterttv.net
 7tv.app
 7tv.io
 nixos.org
+nix.dev
 extranix.org
