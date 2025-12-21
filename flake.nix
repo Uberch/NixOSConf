@@ -56,8 +56,8 @@
 		];
 		users = [
 			{ username = "uber";		stateVersion = generalStateVersion; }
-			{ username = "avatar";	stateVersion = newStateVersion; }
-			{ username = "joker";		stateVersion = newStateVersion; }
+			{ username = "avatar";	stateVersion = generalStateVersion; }
+			{ username = "joker";		stateVersion = generalStateVersion; }
 		];
 
 		# Function to make system configuration
