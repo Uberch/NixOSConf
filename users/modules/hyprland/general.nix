@@ -1,6 +1,5 @@
 { lib, config, ... }: {
 config = lib.mkIf config.hyprland.enable {
-	programs.rofi.enable = true;
 	wayland.windowManager.hyprland = {
 		enable = true;
 		settings = {

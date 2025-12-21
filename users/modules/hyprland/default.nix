@@ -5,10 +5,10 @@ options = {
 };
 	imports = [
 		./cursor.nix
-		./drun.nix
 		./general.nix
 		./input.nix
 		./keymaps.nix
 		./misc.nix
+		./rofi.nix
 	];
 }
