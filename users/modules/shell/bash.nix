@@ -7,7 +7,6 @@
 		in {
 			# General purpose
 			v = "$EDITOR";
-			nixv = "nix run ${flake_path}";
 			c = "clear";
 			ll = "ls -la";
 			rg = "ranger";
@@ -26,7 +25,7 @@
 
 			# Tmux
 			tn = "tmux new-session";
-			ta = "tmux attach-seesion";
+			ta = "tmux attach-session";
 			tl = "tmux list-sessions";
 			tk = "tmux kill-server";
 		};

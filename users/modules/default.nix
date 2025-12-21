@@ -2,9 +2,9 @@
 	imports = [
 		./nvf
 		./terminal
-		./bash.nix
+		./shell
+		./hyprland
 		./git.nix
-		./hyprland.nix
 		./ranger.nix
 		./ssh.nix
 		./stylix.nix
