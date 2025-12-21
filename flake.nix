@@ -49,19 +49,22 @@
 		generalStateVersion = "25.05";
 		newStateVersion = "25.11";
 		hosts = [
-			{ hostname = "archivist";	username = "avatar";	stateVersion = newStateVersion; }
-			{ hostname = "apprentice";	username = "uber";	stateVersion = generalStateVersion; }
+			{ hostname = "archivist";	stateVersion = newStateVersion;
+				users = [ "avatar" ]; }
+			{ hostname = "apprentice"; stateVersion = generalStateVersion;
+				users = [ "uber" "joker" ]; }
 		];
 		users = [
 			{ username = "uber";		stateVersion = generalStateVersion; }
 			{ username = "avatar";	stateVersion = newStateVersion; }
+			{ username = "joker";		stateVersion = newStateVersion; }
 		];
 
 		# Function to make system configuration
-		makeSystem = { hostname, username, stateVersion }: nixpkgs.lib.nixosSystem {
+		makeSystem = { hostname, stateVersion, users }: nixpkgs.lib.nixosSystem {
 			system = system;
 			specialArgs = {
-				inherit hostname username stateVersion;
+				inherit hostname users stateVersion;
 			};
 
 			modules = [
@@ -91,7 +94,7 @@
 		nixosConfigurations = nixpkgs.lib.foldl' (configs: host:
 			configs // {
 				"${host.hostname}" = makeSystem {
-					inherit (host) hostname username stateVersion;
+					inherit (host) hostname stateVersion users;
 				};
 			}) {} hosts;
 
