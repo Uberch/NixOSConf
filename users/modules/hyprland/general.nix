@@ -12,7 +12,7 @@ config = lib.mkIf config.hyprland.enable {
 			decoration.rounding = 5;
 
 			ecosystem = {
-				no_update_news = false;
+				no_update_news = true;
 				no_donation_nag = true;
 			};
 

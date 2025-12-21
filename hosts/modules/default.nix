@@ -9,6 +9,7 @@
 		./kanata.nix
 		./localization.nix
 		./networking.nix
+		./opengl.nix
 		./sshd.nix
 		./stylix.nix
 	];
