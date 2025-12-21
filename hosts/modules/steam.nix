@@ -3,12 +3,15 @@
 		lib.mkEnableOption "Enable steam";
 
 config = lib.mkIf config.steam.enable {
-	programs.steam = {
-		enable = true;
-		gamescopeSession.enable = true;
+	programs = {
+		steam = {
+			enable = true;
+			gamescopeSession.enable = true;
+		};
+		gamemode.enable = true;
 	};
-	home = {
-		packages = with pkgs; [
+	environment = {
+		systemPackages = with pkgs; [
 			protonup
 		];
 		sessionVariables.STEAM_EXTRA_COMPAT_TOOLS_PATHS =

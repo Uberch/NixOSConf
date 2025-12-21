@@ -11,6 +11,7 @@
 		./networking.nix
 		./opengl.nix
 		./sshd.nix
+		./steam.nix
 		./stylix.nix
 	];
 }
