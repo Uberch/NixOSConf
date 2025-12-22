@@ -6,5 +6,6 @@
 		kanata
 		hyprland
 		firefox
+		bluez
 	];
 }

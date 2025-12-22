@@ -3,6 +3,7 @@
 		./neovim
 		./users
 		./zapret
+		./bluetooth.nix
 		./experimental.nix
 		./garbage.nix
 		./general_packages.nix
