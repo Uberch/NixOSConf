@@ -1,4 +1,9 @@
-{
+{ lib, config, ... }: {
+	options.hyprland.autoEnter = 
+		lib.mkEnableOption
+		"If user should enter hyprland automatically after login";
+
+config = {
 	programs.bash = {
 		enable = true;
 		shellAliases =
@@ -33,5 +38,10 @@
 		bashrcExtra = ''
 			set -o vi
 		'';
+
+		initExtra = lib.mkIf config.hyprland.autoEnter ''
+			hyprland
+		'';
 	};
+};
 }
