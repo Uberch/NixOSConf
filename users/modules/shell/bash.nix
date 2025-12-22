@@ -1,8 +1,4 @@
 { lib, config, ... }: {
-	options.hyprland.autoEnter = 
-		lib.mkEnableOption
-		"If user should enter hyprland automatically after login";
-
 config = {
 	programs.bash = {
 		enable = true;
@@ -24,6 +20,11 @@ config = {
 			rebuild = "sudo nixos-rebuild switch --flake ${flake_path}";
 			nixtest = "sudo nixos-rebuild test --flake ${flake_path}";
 			hman = "home-manager switch --flake ${flake_path}#uber";
+			hmanJoker = ''
+				cd ${flake_path};
+				home-manager build --flake .#joker
+				sudo mv result ../../joker/
+			'';
 			
 			# Git
 			g = "git";
@@ -37,10 +38,12 @@ config = {
 
 		bashrcExtra = ''
 			set -o vi
-		'';
 
-		initExtra = lib.mkIf config.hyprland.autoEnter ''
-			hyprland
+			if [[ $(tty) == *"pts"* ]]; then
+				clear
+			else
+				hyprland
+			fi
 		'';
 	};
 };

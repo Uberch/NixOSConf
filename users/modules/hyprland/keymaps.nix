@@ -48,7 +48,7 @@ config = lib.mkIf config.hyprland.enable {
 			# Windows
 			"$sup, Q, killactive"
 			"$sup, F, fullscreen"
-			"$sup $sft $ctl, K, exec, hyprshutdown"
+			"$sup $sft $ctl, K, exit"
 
 			# Resize
 			"$sup, W, resizeactive, 100, 0"
