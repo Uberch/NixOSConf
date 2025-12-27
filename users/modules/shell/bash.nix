@@ -20,6 +20,9 @@ config = {
 			rebuild = "sudo nixos-rebuild switch --flake ${flake_path}";
 			nixtest = "sudo nixos-rebuild test --flake ${flake_path}";
 			hman = "home-manager switch --flake ${flake_path}#uber";
+			buildIso = ''
+				nix build ${flake_path}#nixosConfigurations.iso.config.system.build.isoImage
+			'';
 			hmanJoker = ''
 				cd ${flake_path};
 				home-manager build --flake .#joker

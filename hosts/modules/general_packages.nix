@@ -6,6 +6,5 @@
 		tmux
 		zapret
 		ranger
-		nixd
 	];
 }

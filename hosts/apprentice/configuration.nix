@@ -1,4 +1,4 @@
-{ config, pkgs, hostname, stateVersion, ... }@inputs: {
+{ stateVersion, ... }: {
 	programs.hyprland = {
 		enable = true;
 		# package = inputs.hyprland.packages."${pkgs.system}".hyprland;
@@ -21,6 +21,5 @@
 		variant = "";
 	};
 
-	networking.hostName = hostname;
 	system.stateVersion = stateVersion;
 }

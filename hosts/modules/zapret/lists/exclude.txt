@@ -24,3 +24,7 @@ akamaitechnologies.com
 2ip.ru
 yandex.ru
 cstimer.net
+stepik.org
+discourse.nixos.org
+cache.nixos.org
+search.nixos.org

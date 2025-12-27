@@ -1,4 +1,5 @@
 {
+	wifi.enable = true;
 	bluetooth.enable = true;
 	kanata.enable = true;
 	sshd.enable = true;

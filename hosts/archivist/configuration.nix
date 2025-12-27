@@ -1,4 +1,4 @@
-{ hostname, stateVersion, ... }: {
+{ stateVersion, ... }: {
 	imports =
 		[ # Include the results of the hardware scan.
 			./hardware-configuration.nix
@@ -16,6 +16,5 @@
 		variant = "";
 	};
 
-	networking.hostName = hostname;
 	system.stateVersion = stateVersion;
 }

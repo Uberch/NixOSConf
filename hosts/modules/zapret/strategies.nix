@@ -702,17 +702,17 @@
 		];
 	in general-strategy
 		# ;
-		++ orig;
+		# ++ orig;
 		# ++ alt1;
 		# ++ alt2;
 		# ++ alt3;
 		# ++ alt4;			# Finally fixing access to nixos.org sites (I killed whole day for this)
 		# ++ alt5;
-		# ++ alt6;
+		++ alt6;
 		# ++ alt7;
 		# ++ alt8;
 		# ++ alt9;			# Brokes with unfound reason
-		# ++ alt10;			# Brokes with '^' in strategy paramters
+		# ++ alt10;			# Brokes with '^' in strategy parameters
 		# ++ fta0;			# Same as alt10
 		# ++ fta1;
 		# ++ fta2;

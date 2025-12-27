@@ -53,6 +53,8 @@
 				users = [ "avatar" ]; }
 			{ hostname = "apprentice"; stateVersion = generalStateVersion;
 				users = [ "uber" "joker" ]; }
+			{ hostname = "iso";			stateVersion = newStateVersion;
+				users = []; }
 		];
 		users = [
 			{ username = "uber";		stateVersion = generalStateVersion; }

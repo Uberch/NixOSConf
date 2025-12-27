@@ -1,9 +1,4 @@
 { lib, config, ... }: {
-options = {
-	kanata.enable =
-		lib.mkEnableOption "Enables kanata module";
-};
-
 config = lib.mkIf config.kanata.enable {
 	services.kanata = {
 		enable = true;

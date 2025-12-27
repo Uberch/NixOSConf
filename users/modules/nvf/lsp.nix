@@ -12,10 +12,16 @@
 			sourcePlugins = [
 				"cmp-nvim-lsp"
 			];
+			setupOpts = {
+				completion = {
+					completeopt = "menu,menuone,noinsert";
+					autocomplete = false;
+				};
+			};
 		};
 
 		lsp = {
-         enable = true;
+			enable = true;
 			mappings = {
 				format = "<Space>f";
 				openDiagnosticFloat = "<Space>e";

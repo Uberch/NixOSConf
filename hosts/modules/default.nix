@@ -1,5 +1,9 @@
-{
+{ hostname, ... }: {
+	networking.hostName = hostname;
+
 	imports = [
+		./options.nix
+
 		./neovim
 		./users
 		./zapret
@@ -14,5 +18,6 @@
 		./sshd.nix
 		./steam.nix
 		./stylix.nix
+		./tmux.nix
 	];
 }
