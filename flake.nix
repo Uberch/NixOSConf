@@ -66,11 +66,12 @@
 		makeSystem = { hostname, stateVersion, users }: nixpkgs.lib.nixosSystem {
 			system = system;
 			specialArgs = {
-				inherit hostname users stateVersion;
+				inherit hostname users stateVersion nvf;
 			};
 
 			modules = [
 				./hosts
+				home-manager.nixosModules.default
 				nixvim.nixosModules.nixvim
 				stylix.nixosModules.stylix
 			];
@@ -85,7 +86,6 @@
 			modules = [
 				./users
 				stylix.homeModules.stylix
-				nvf.homeManagerModules.nvf
 			];
 
 			pkgs = nixpkgs.legacyPackages.${system};

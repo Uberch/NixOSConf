@@ -5,7 +5,6 @@
 		./options.nix
 
 		./neovim
-		./users
 		./zapret
 		./bluetooth.nix
 		./experimental.nix
