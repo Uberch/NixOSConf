@@ -705,10 +705,10 @@
 		# ++ orig;
 		# ++ alt1;
 		# ++ alt2;
-		# ++ alt3;
+		++ alt3;
 		# ++ alt4;			# Finally fixing access to nixos.org sites (I killed whole day for this)
 		# ++ alt5;
-		++ alt6;
+		# ++ alt6;
 		# ++ alt7;
 		# ++ alt8;
 		# ++ alt9;			# Brokes with unfound reason
