@@ -28,3 +28,5 @@ stepik.org
 discourse.nixos.org
 cache.nixos.org
 search.nixos.org
+channels.nixos.org
+hypr.land

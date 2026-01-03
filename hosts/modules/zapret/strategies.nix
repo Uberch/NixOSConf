@@ -427,7 +427,7 @@
 			"--dpi-desync=fake"
 			"--dpi-desync-repeats=6"
 			"--dpi-desync-fooling=ts"
-			"--dpi-desync-fake-tls=^!"
+			"--dpi-desync-fake-tls=\^!"
 			"--dpi-desync-fake-tls-mod=rnd,sni=www.google.com"
 			"--dpi-desync-fake-tls=${tls-4pda}"
 			"--dpi-desync-fake-tls-mod=none"
@@ -441,7 +441,7 @@
 			"--dpi-desync-repeats=11"
 			"--dpi-desync-fooling=badseq"
 			"--dpi-desync-fake-tls=0x00000000"
-			"--dpi-desync-fake-tls=^!"
+			"--dpi-desync-fake-tls=\^!"
 			"--dpi-desync-fake-tls-mod=rnd,dupsid,sni=www.google.com"
 			"--new"
 
@@ -452,7 +452,7 @@
 			"--dpi-desync-repeats=11"
 			"--dpi-desync-fooling=badseq"
 			"--dpi-desync-fake-tls=0x00000000"
-			"--dpi-desync-fake-tls=^!"
+			"--dpi-desync-fake-tls=\^!"
 			"--dpi-desync-fake-tls-mod=rnd,dupsid,sni=www.google.com"
 			"--new"
 
@@ -706,7 +706,7 @@
 		# ++ alt1;
 		# ++ alt2;
 		++ alt3;
-		# ++ alt4;			# Finally fixing access to nixos.org sites (I killed whole day for this)
+		# ++ alt4;
 		# ++ alt5;
 		# ++ alt6;
 		# ++ alt7;
