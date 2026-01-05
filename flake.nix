@@ -71,6 +71,7 @@
 
 			modules = [
 				./hosts
+				./hardware-configuration.nix
 				home-manager.nixosModules.default
 				nixvim.nixosModules.nixvim
 				stylix.nixosModules.stylix
