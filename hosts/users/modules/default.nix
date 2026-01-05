@@ -1,9 +1,9 @@
 {
 	imports = [
+		./hyprland
 		./nvf
 		./terminal
 		./shell
-		./hyprland
 		./git.nix
 		./lutris.nix
 		./ranger.nix

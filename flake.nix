@@ -56,11 +56,6 @@
 			{ hostname = "iso";			stateVersion = newStateVersion;
 				users = []; }
 		];
-		users = [
-			{ username = "uber";		stateVersion = generalStateVersion; }
-			{ username = "avatar";	stateVersion = generalStateVersion; }
-			{ username = "joker";		stateVersion = generalStateVersion; }
-		];
 
 		# Function to make system configuration
 		makeSystem = { hostname, stateVersion, users }: nixpkgs.lib.nixosSystem {
@@ -70,28 +65,13 @@
 			};
 
 			modules = [
-				./hosts
 				./hardware-configuration.nix
+				./hosts
 				home-manager.nixosModules.default
 				nixvim.nixosModules.nixvim
 				stylix.nixosModules.stylix
 			];
 		};
-
-		# Function to make home manager configuration
-		makeHome = { username, stateVersion }: home-manager.lib.homeManagerConfiguration {
-			extraSpecialArgs = {
-				inherit username stateVersion;
-			};
-
-			modules = [
-				./users
-				stylix.homeModules.stylix
-			];
-
-			pkgs = nixpkgs.legacyPackages.${system};
-		};
-
 	in {
 		# Make nixos configurations
 		nixosConfigurations = nixpkgs.lib.foldl' (configs: host:
@@ -100,13 +80,5 @@
 					inherit (host) hostname stateVersion users;
 				};
 			}) {} hosts;
-
-		# Make home manager configurations
-		homeConfigurations = nixpkgs.lib.foldl' (configs: user:
-			configs // { 
-				"${user.username}" = makeHome {
-					inherit (user) username stateVersion;
-				};
-			}) {} users;
 	};
 }

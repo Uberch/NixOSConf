@@ -4,7 +4,7 @@ config = {
 		enable = true;
 		shellAliases =
 		let
-			flake_path = "~/nix";
+			flake_path = "/home/uber/nix";
 		in {
 			# General purpose
 			v = "$EDITOR";
@@ -22,11 +22,6 @@ config = {
 			hman = "home-manager switch --flake ${flake_path}#uber";
 			buildIso = ''
 				nix build ${flake_path}#nixosConfigurations.iso.config.system.build.isoImage
-			'';
-			hmanJoker = ''
-				cd ${flake_path};
-				home-manager build --flake .#joker
-				sudo mv result ../../joker/
 			'';
 			
 			# Git

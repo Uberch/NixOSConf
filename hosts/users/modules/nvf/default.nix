@@ -1,5 +1,8 @@
 { nvf, ... }: {
-	programs.nvf.enable = true;
+	programs.nvf={
+		enable = true;
+		defaultEditor = true;
+	};
 	imports = [
 		nvf.homeManagerModules.default
 		./keymaps.nix

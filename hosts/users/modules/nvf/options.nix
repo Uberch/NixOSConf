@@ -21,7 +21,7 @@
 		linebreak = true;						# Break line on special chars, not at the moment it does not fit on one line
 		ruler = true;							# Show cursor position
 		signcolumn = "yes:1";				# Locks the size and presence of signcolumn between line number and text itself
-		matchpairs = "(:),[:],{:},<:>";	# Symbols to be considered as pairs
+		matchpairs = "(:),[:],{:}";	# Symbols to be considered as pairs
 		list = true;							# Enables visual change of some characters
 		listchars = "tab:   ,lead:·,trail:·,multispace:··";
 		# listchars = {
