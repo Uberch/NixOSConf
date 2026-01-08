@@ -5,6 +5,11 @@
 		# General package repo
 		nixpkgs.url = "github:nixos/nixpkgs/release-25.05";
 		
+		# unstablePkgs = {
+		# 	url = "github:nixos/nixpkgs/unstable";
+		# 	inputs.nixpkgs.follows = "nixpkgs";
+		# };
+
 		# Home-manager
 		home-manager = {
 			url = "github:nix-community/home-manager/release-25.05";
@@ -67,6 +72,7 @@
 			modules = [
 				./hardware-configuration.nix
 				./hosts
+				./users
 				home-manager.nixosModules.default
 				nixvim.nixosModules.nixvim
 				stylix.nixosModules.stylix

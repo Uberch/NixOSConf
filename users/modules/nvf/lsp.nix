@@ -14,7 +14,7 @@
 			];
 			setupOpts = {
 				completion = {
-					completeopt = "menu,menuone,noinsert";
+					completeopt = "fuzzy,menu,menuone,noinsert,noselect,preview";
 					autocomplete = false;
 				};
 			};

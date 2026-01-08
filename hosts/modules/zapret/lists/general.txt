@@ -46,4 +46,3 @@ betterttv.net
 nixos.org
 nix.dev
 extranix.org
-lutris.net
