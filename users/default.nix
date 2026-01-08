@@ -9,6 +9,9 @@
 			confs // {
 				${user} = import ./${user}/home.nix;
 			}
-		) {} users;
+		) {} users
+		// {
+			root = import ./root/home.nix;
+		};
 	};
 }
