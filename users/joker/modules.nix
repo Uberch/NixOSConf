@@ -1,8 +1,7 @@
 {
 	hyprland = {
 		enable = true;
-		autoEnter = true;
-		disableTouchpad = true;
+		inputMode = "game";
 	};
 	lutris.enable = true;
 }
