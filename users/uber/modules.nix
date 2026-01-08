@@ -1,8 +1,7 @@
-{ config, ... }: {
+{
 	hyprland = {
 		enable = true;
-		autoEnter = false;
-		disableTouchpad = false;
+		inputMode = "work";
 	};
 	lutris.enable = false;
 }

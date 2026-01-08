@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
 	users.users.joker = {
 		isNormalUser = true;
 		description = "User for gaming";
