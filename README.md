@@ -1,4 +1,12 @@
-# Installation process
+# NixOS Configuration
+
+## Building iso image
+
+```bash
+nix build .#nixosConfigurations.iso.config.system.build.isoImage
+```
+
+## Installing along with nixos from Bootable USB
 
 Clone configuration repo:
 ```bash
@@ -6,7 +14,7 @@ git clone https://github.com/Uberch/NixOSConf
 cd NixOSConf
 ```
 
-Check disk names with `lsblk` and adjust disko.nix if needed.
+Check disk names with `lsblk` and adjust disko.nix.
 Run disko to format storage:
 ```bash
 sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko disko.nix
