@@ -41,7 +41,7 @@ config = lib.mkIf config.hyprland.enable {
 
 			# Applications
 			"$sup, $ret, exec, kitty"
-			"$sup, T, exec, telegram-desktop"
+			"$sup, T, exec, Telegram"
 			"$sup, B, exec, firefox"
 			"$sup, D, exec, rofi -show drun -replace -i"
 
