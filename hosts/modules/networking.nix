@@ -17,7 +17,7 @@
 			enable = true;
 			ensureProfiles = {
 				environmentFiles = [
-					"/run/secrets/network-manager.env"
+					"/root/network-manager.env"
 				];
 				profiles = {
 					"POCO X5 Pro 5G" = {

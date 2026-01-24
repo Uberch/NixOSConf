@@ -11,7 +11,7 @@
 		keyMode = "vi";								# Use vi-style shortcuts
 		customPaneNavigationAndResize = true;	# Override hjkl bindings for pane navigation and resizing
 
-		escapeTime = 1000;
+		escapeTime = 300;
 		mouse = true;
 		historyLimit = 10000;
 
