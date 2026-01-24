@@ -2,8 +2,20 @@
 
 ## Building iso image
 
+
 ```bash
 nix build .#nixosConfigurations.iso.config.system.build.isoImage
+```
+After iso file builded, plug in USB drive and find its name with `lsbls`
+
+Ensure it is unmounted
+```bash
+sudo umount /dev/sdX*
+```
+
+And copy iso to the flash drive to obtain bootable drive
+```bash
+sudo dd bs=4M conf=fsync oflag=direct status=progress if=<path-to-image> of=/dev/sdX
 ```
 
 ## Installing along with nixos from Bootable USB
