@@ -12,6 +12,7 @@ config = {
 			ll = "ls -la";
 			rg = "ranger";
 			nixpy = "nix-shell -p python3";
+			nixgo = "nix-shell -p gcc";
 
 			# Power managment
 			sdn = "systemctl poweroff";
@@ -20,7 +21,6 @@ config = {
 			# Nix-related
 			rebuild = "sudo nixos-rebuild switch --flake ${flake_path}";
 			nixtest = "sudo nixos-rebuild test --flake ${flake_path}";
-			hman = "home-manager switch --flake ${flake_path}#uber";
 			buildIso = ''
 				nix build ${flake_path}#nixosConfigurations.iso.config.system.build.isoImage
 			'';
@@ -30,7 +30,7 @@ config = {
 
 			# Tmux
 			tn = "tmux new-session";
-			ta = "tmux attach-session -t";
+			ta = "tmux attach";
 			tl = "tmux list-sessions";
 			tk = "tmux kill-server";
 		};
