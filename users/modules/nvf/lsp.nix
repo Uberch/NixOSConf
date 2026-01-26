@@ -38,33 +38,41 @@
 					root_markers = [ ".git" ];
 				};
 
-				nixd = {
-					enable = true;
-					filetypes = [
-						".nix"
-					];
-				};
+				nixd.enable = true;
 
 				gopls.enable = true;
+
+				basedpyright = {
+					enable = true;
+					analysis = {
+						diagnosticMode = "workspace";
+					};
+				};
 			};
 		};
 
 		languages = {
+			enableFormat = true;
+			enableTreesitter = true;
 			nix = {
 				enable = true;
-				format.enable = true;
 				lsp = {
 					enable = true;
-					servers = [ "nixd" ] ;
+					servers = [ "nixd" ];
 				};
+				extraDiagnostics.enable = true;
 			};
 
 			go = {
 				enable = true;
-				lsp = {
-					enable = true;
-					servers = [ "gopls" ] ;
-				};
+				lsp.enable = true;
+				dap.enable = true;
+			};
+
+			python = {
+				enable = true;
+				format.enable = false;
+				lsp.enable = true;
 			};
 		};
 	};

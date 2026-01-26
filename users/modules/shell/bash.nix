@@ -11,6 +11,7 @@ config = {
 			c = "clear";
 			ll = "ls -la";
 			rg = "ranger";
+			nixpy = "nix-shell -p python3";
 
 			# Power managment
 			sdn = "systemctl poweroff";
@@ -29,7 +30,7 @@ config = {
 
 			# Tmux
 			tn = "tmux new-session";
-			ta = "tmux attach-session";
+			ta = "tmux attach-session -t";
 			tl = "tmux list-sessions";
 			tk = "tmux kill-server";
 		};

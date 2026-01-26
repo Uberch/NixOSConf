@@ -11,9 +11,7 @@
 		username = "uber";
 	in {
 		username = username;
+		homeDirectory = "/home/${username}";
 		stateVersion = stateVersion; # Please read the comment before changing.
-		sessionVariables = {
-			EDITOR = "nvim";
-		};
 	};
 }
