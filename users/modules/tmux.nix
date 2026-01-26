@@ -1,9 +1,12 @@
 { pkgs, ... }: {
-	programs.tmux = {
+	programs.tmux = let
+		deskLayout = "43b5,192x62,0,0{65x62,0,0,3,126x62,66,0[126x41,66,0,4,126x20,66,42,5]}";
+		lapLayout = "e442,192x62,0,0{106x62,0,0,10,85x62,107,0[85x31,107,0,11,85x30,107,32,12]}";
+	in {
 		# Enable package conf
 		enable = true;
 
-		prefix = "C-b";								# For further decision
+		prefix = "C-a";								# For further decision
 
 		baseIndex = 1;
 
@@ -24,13 +27,17 @@
 				plugin = tmuxPlugins.continuum;
 				extraConfig = ''
 					set -g @continuum-restore 'on'
-					set -g @continuum-save-interval '60' # minutes
+					set -g @continuum-save-interval '10' # minutes
 				'';
 			}
 		];
 
 		extraConfig = ''
 			bind f resize-pane -Z
+
+			bind S select-layout "${lapLayout}"
+			bind G select-layout "${deskLayout}"
+
 			set -g repeat-time 1000;
 			set -g renumber-windows on
 
@@ -46,9 +53,5 @@
 
 			set -g  window-status-bell-style "fg=red,nobold"
 		'';
-		# 	split-window -h
-		# 	select-pane -t 0
-		# 	resize-pane -x 80
-		# 	split-window -v
 	};
 }
