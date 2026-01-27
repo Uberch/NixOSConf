@@ -18,5 +18,6 @@
 		./steam.nix
 		./stylix.nix
 		./tmux.nix
+		./virtualization.nix
 	];
 }

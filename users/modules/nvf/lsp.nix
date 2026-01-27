@@ -1,5 +1,26 @@
 {
 	programs.nvf.settings.vim = {
+		# autocomplete.blink-cmp = {
+		# 	enable = true;
+		# 	mappings = {
+		# 		complete = "<C-Space>";
+		# 		close = "<C-e>";
+		# 		confirm = "<CR>";
+		# 		next = "<C-n>";
+		# 		previous = "<C-p>";
+		# 		scrollDocsUp = "<C-k>";
+		# 		scrollDocsDown = "<C-j>";
+		# 	};
+		# 	setupOpts = {
+		# 		completion = {
+		# 			documentation.auto_show = false;
+		# 			menu.auto_show = false;
+		# 			# completeopt = "fuzzy,menu,menuone,noinsert,noselect,preview";
+		# 			# completeopt = "menu,menuone,popup,fuzzy,noselect";
+		# 			# autocomplete = false;
+		# 		};
+		# 	};
+		# };
 		autocomplete.nvim-cmp = {
 			enable = true;
 			mappings = {
@@ -8,13 +29,18 @@
 				confirm = "<CR>";
 				next = "<C-n>";
 				previous = "<C-p>";
+				scrollDocsUp = "<C-k>";
+				scrollDocsDown = "<C-j>";
 			};
 			sourcePlugins = [
-				"cmp-nvim-lsp"
+				# "cmp-nvim-lsp"
+				"nvim-lspconfig"
+				"luasnip"
 			];
 			setupOpts = {
 				completion = {
-					completeopt = "fuzzy,menu,menuone,noinsert,noselect,preview";
+					# completeopt = "fuzzy,menu,menuone,noinsert,noselect,preview";
+					completeopt = "nosort,menu,menuone,popup,fuzzy,noselect";
 					autocomplete = false;
 				};
 			};
