@@ -1,4 +1,4 @@
-{ stateVersion, ... }: {
+{
 	programs.home-manager.enable = true;
 
 	imports = [
@@ -10,8 +10,10 @@
 	home = let
 		username = "uber";
 	in {
-		username = username;
-		homeDirectory = "/home/${username}";
-		stateVersion = stateVersion; # Please read the comment before changing.
+		inherit username;
+		stateVersion = "25.05";
+		sessionVariables = {
+			EDITOR = "nvim";
+		};
 	};
 }

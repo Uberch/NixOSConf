@@ -1,4 +1,4 @@
-{ config, username, stateVersion, ... }: {
+{
 	programs.home-manager.enable = true;
 
 	imports = [
@@ -10,9 +10,9 @@
 	home = let
 		username = "joker";
 	in {
-		username = username;
+		inherit username;
 		homeDirectory = "/home/${username}";
-		stateVersion = stateVersion; # Please read the comment before changing.
+		stateVersion = "25.05"; # Please read the comment before changing.
 		sessionVariables = {
 			EDITOR = "nvim";
 		};

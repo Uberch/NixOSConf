@@ -1,10 +1,10 @@
-{ users, lib, stateVersion, nvf, ... }: {
+{ users, lib, nvf, ... }: {
 	imports = lib.map
 		(name: ./${name}/${name}.nix)
 		users;
 
 	home-manager = {
-		extraSpecialArgs = { inherit nvf stateVersion; };
+		extraSpecialArgs = { inherit nvf; };
 		users = lib.foldl' (confs: user:
 			confs // {
 				${user} = import ./${user}/home.nix;
