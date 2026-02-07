@@ -1,10 +1,10 @@
-{ lib, config, ... }: {
+{ config, ... }: {
 config = {
 	programs.bash = {
 		enable = true;
 		shellAliases =
 		let
-			flake_path = "/home/uber/nix";
+			flake_path = "${config.home.homeDirectory}/nix";
 		in {
 			# General purpose
 			v = "$EDITOR";
@@ -37,7 +37,6 @@ config = {
 
 		bashrcExtra = ''
 			set -o vi
-
 			if [[ $(tty) == *"pts"* ]]; then
 				clear
 			else

@@ -4,5 +4,5 @@
 	kanata.enable = true;
 	sshd.enable = true;
 	garbage.clearOld = true;
-	steam.enable = true;
+	steam.enable = false;
 }

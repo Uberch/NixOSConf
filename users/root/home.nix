@@ -1,4 +1,4 @@
-{ stateVersion, pkgs, ... }: {
+{
 	programs.home-manager.enable = true;
 
 	imports = [
@@ -9,7 +9,7 @@
 
 	home = {
 		username = "root";
-		stateVersion = stateVersion; # Please read the comment before changing.
+		stateVersion = "25.05";
 		sessionVariables = {
 			EDITOR = "nvim";
 		};

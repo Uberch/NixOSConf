@@ -51,14 +51,13 @@
 			}: let
 		# General variables
 		system = "x86_64-linux";
-		generalStateVersion = "25.05";
-		newStateVersion = "25.11";
+		StateVersion = "25.11";
 		hosts = [
-			{ hostname = "archivist";	stateVersion = newStateVersion;
+			{ hostname = "archivist";	stateVersion = StateVersion;
 				users = [ "avatar" ]; }
-			{ hostname = "apprentice"; stateVersion = generalStateVersion;
-				users = [ "uber" ]; }
-			{ hostname = "iso";			stateVersion = newStateVersion;
+			{ hostname = "apprentice"; stateVersion = StateVersion;
+				users = [ "uber" "joker" ]; }
+			{ hostname = "iso";			stateVersion = StateVersion;
 				users = []; }
 		];
 
