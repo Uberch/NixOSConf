@@ -47,3 +47,4 @@ nixos.org
 nix.dev
 extranix.org
 hypr.land
+tiangolo.com

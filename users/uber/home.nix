@@ -1,4 +1,4 @@
-{ config, username, stateVersion, ... }: {
+{ stateVersion, ... }: {
 	programs.home-manager.enable = true;
 
 	imports = [
