@@ -1,30 +1,30 @@
-{
+{ config, ... }: {
 	programs.ssh = {
 		enable = true;
 
 		enableDefaultConfig = false;
 
-		matchBlocks = {
+		matchBlocks = let
+			identityDir = "${config.home.homeDirectory}/.ssh/keys";
+		in {
+			"*" = {
+				hashKnownHosts = true;		# Hash stored known hosts
+				addKeysToAgent = "yes";		# Add key identities to key agent
+			};
 			gh = {
 				user = "git";
 				hostname = "github.com";
-				identityFile = "/home/uber/.ssh/keys/gh/key";
-				hashKnownHosts = true;		# Hash stored known hosts
-				addKeysToAgent = "yes";		# Add key identities to key agent
+				identityFile = "${identityDir}/gh/key";
 			};
 			ghiu = {
 				user = "git";
 				hostname = "github.com";
-				identityFile = "/home/uber/.ssh/keys/ghiu/key";
-				hashKnownHosts = true;		# Hash stored known hosts
-				addKeysToAgent = "yes";		# Add key identities to key agent
+				identityFile = "${identityDir}/ghiu/key";
 			};
 			gliu = {
 				user = "git";
 				hostname = "gitlab.pg.innopolis.university";
-				identityFile = "/home/uber/.ssh/keys/gliu/key";
-				hashKnownHosts = true;		# Hash stored known hosts
-				addKeysToAgent = "yes";		# Add key identities to key agent
+				identityFile = "${identityDir}/gliu/key";
 			};
 		};
 	};
