@@ -1,4 +1,4 @@
-{ config, username, stateVersion, ... }: {
+{ stateVersion, ... }: {
 	programs.home-manager.enable = true;
 
 	imports = [
@@ -10,7 +10,7 @@
 	home = let
 		username = "avatar";
 	in {
-		username = username;
+		inherit username;
 		homeDirectory = "/home/${username}";
 		stateVersion = stateVersion; # Please read the comment before changing.
 		sessionVariables = {

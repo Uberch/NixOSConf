@@ -57,14 +57,14 @@
 			{ hostname = "archivist";	stateVersion = newStateVersion;
 				users = [ "avatar" ]; }
 			{ hostname = "apprentice"; stateVersion = generalStateVersion;
-				users = [ "uber" "joker" ]; }
+				users = [ "uber" ]; }
 			{ hostname = "iso";			stateVersion = newStateVersion;
 				users = []; }
 		];
 
 		# Function to make system configuration
 		makeSystem = { hostname, stateVersion, users }: nixpkgs.lib.nixosSystem {
-			system = system;
+			inherit system;
 			specialArgs = {
 				inherit hostname users stateVersion nvf;
 			};
