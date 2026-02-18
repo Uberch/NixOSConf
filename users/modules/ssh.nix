@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ config,  ... }: {
 	programs.ssh = {
 		enable = true;
 
@@ -10,6 +10,11 @@
 			"*" = {
 				hashKnownHosts = true;		# Hash stored known hosts
 				addKeysToAgent = "yes";		# Add key identities to key agent
+			};
+			archive = {
+				user = "avatar";
+				hostname = "archive";
+				identityFile = "${identityDir}/archive/key";
 			};
 			gh = {
 				user = "git";
@@ -25,6 +30,12 @@
 				user = "git";
 				hostname = "gitlab.pg.innopolis.university";
 				identityFile = "${identityDir}/gliu/key";
+			};
+			dvps = {
+				user = "user";
+				hostname = "archive";
+				port = 2022;
+				identityFile = "${identityDir}/DevOps/key";
 			};
 		};
 	};

@@ -6,7 +6,9 @@
 
 		./neovim
 		./zapret
+
 		./bluetooth.nix
+		./dns.nix
 		./experimental.nix
 		./garbage.nix
 		./general_packages.nix

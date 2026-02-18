@@ -37,6 +37,12 @@ config = {
 
 		bashrcExtra = ''
 			set -o vi
+
+			if [ -f ~/.env ]; then
+				export $(grep -v '^#\|^$' .env | xargs)
+				echo "Environment loaded"
+			fi
+
 			if [[ $(tty) == *"pts"* ]]; then
 				clear
 			else
