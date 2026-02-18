@@ -4,7 +4,7 @@ config = lib.mkIf config.sshd.enable {
 	services.openssh = {
 		enable = true;
 
-		banner = "Who dare to disturb my place?!";
+		banner = "Who dare to disturb my place?!\n";
 		settings.PermitRootLogin = "no";
 	};
 };
