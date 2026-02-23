@@ -7,6 +7,7 @@
 		./terminal
 		./shell
 
+		./general_packages.nix
 		./git.nix
 		./lutris.nix
 		./ranger.nix
