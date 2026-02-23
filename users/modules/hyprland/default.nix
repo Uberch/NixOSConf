@@ -10,5 +10,6 @@
 		./keymaps.nix
 		./misc.nix
 		./rofi.nix
+		./windowrules.nix
 	];
 }
