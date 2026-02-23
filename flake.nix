@@ -5,10 +5,10 @@
 		# General package repo
 		nixpkgs.url = "github:nixos/nixpkgs/release-25.11";
 		
-		# unstablePkgs = {
-		# 	url = "github:nixos/nixpkgs/unstable";
-		# 	inputs.nixpkgs.follows = "nixpkgs";
-		# };
+		unstablePkgs = {
+			url = "github:nixos/nixpkgs/nixos-unstable";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 
 		# Home-manager
 		home-manager = {
@@ -47,6 +47,7 @@
 			stylix,
 			nixvim,
 			nvf,
+			unstablePkgs,
 			...
 			}: let
 		# General variables
@@ -65,6 +66,7 @@
 		makeSystem = { hostname, stateVersion, users }: nixpkgs.lib.nixosSystem {
 			inherit system;
 			specialArgs = {
+				unstablePkgs = unstablePkgs.outputs.legacyPackages."${system}";
 				inherit hostname users stateVersion nvf;
 			};
 
