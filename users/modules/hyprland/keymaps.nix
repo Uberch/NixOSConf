@@ -44,7 +44,8 @@ config = lib.mkIf config.hyprland.enable {
 			"$sup, T, exec, Telegram"
 			"$sup, B, exec, firefox"
 			"$sup, D, exec, rofi -show drun -replace -i"
-			"$sup $sft, S, exec, hyprshot -m region -z -s -o ${config.home.homeDirectory}/screenshots -f screenshot.png"
+			"$sup $sft, S, exec, hyprshot -m region -z -s -o ${config.home.homeDirectory}/images -f screenshot.png"
+			"$sup $sft, D, exec, hyprlock"
 
 			# Windows
 			"$sup, Q, killactive"
