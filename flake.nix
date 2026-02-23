@@ -56,7 +56,7 @@
 			{ hostname = "archivist";	stateVersion = StateVersion;
 				users = [ "avatar" ]; }
 			{ hostname = "apprentice"; stateVersion = StateVersion;
-				users = [ "uber" "joker" ]; }
+				users = [ "uber" ]; }
 			{ hostname = "iso";			stateVersion = StateVersion;
 				users = []; }
 		];
