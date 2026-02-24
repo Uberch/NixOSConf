@@ -21,13 +21,13 @@
 				background = {
 					monitor = "";
 					path = lib.mkForce "images/back.png";
-					blur_passes = 1;
-					blur_size = 3;
+					blur_passes = 2;
+					blur_size = 1;
 				};
 
 				image = {
 					monitor = lap_monitor;
-					path = "images/back.png";
+					path = "images/guard.png";
 					size = 280;
 					rounding = 40;
 					border_size = 4;
@@ -72,25 +72,12 @@
 				label = [
 					{
 						monitor = lap_monitor;
-						text = "cmd[update:1000] echo \"$TIME\"";
-						text_align = "center";
-						color = "$on_surface";
-						font_size = 55;
-						font_family = "Fira Semibold";
-						position = "-100, 70";
-						halign = "right";
-						valign = "bottom";
-						shadow_passes = 5;
-						shadow_size = 10;
-					}
-					{
-						monitor = lap_monitor;
 						text = "$LAYOUT";
 						text_align = "center";
 						color = "$on_surface";
 						font_size = 20;
 						font_family = "Fira Semibold";
-						position = "-100, 250";
+						position = "-100, 60";
 						halign = "right";
 						valign = "bottom";
 						shadow_passes = 5;
@@ -98,12 +85,12 @@
 					}
 					{
 						monitor = lap_monitor;
-						text = "$USER";
+						text = "cmd[update:1000] echo \"$TIME\"";
 						text_align = "center";
 						color = "$on_surface";
 						font_size = 20;
 						font_family = "Fira Semibold";
-						position = "-100, 160";
+						position = "-100, 120";
 						halign = "right";
 						valign = "bottom";
 						shadow_passes = 5;

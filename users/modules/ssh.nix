@@ -33,8 +33,8 @@
 			};
 			dvps = {
 				user = "user";
-				hostname = "archive";
-				port = 2022;
+				hostname = "localhost";
+				port = 2222;
 				identityFile = "${identityDir}/DevOps/key";
 			};
 		};

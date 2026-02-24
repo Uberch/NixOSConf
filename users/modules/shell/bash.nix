@@ -46,7 +46,7 @@ config = {
 			if [[ $(tty) == *"pts"* ]]; then
 				clear
 			else
-				hyprland
+				start-hyprland
 			fi
 		'';
 	};
