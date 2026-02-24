@@ -2,8 +2,11 @@
 	imports = [
 		./input
 
+		# Hypr ecosystem
+		./hyprcursor.nix
 		./hyprlock.nix
 		./hyprshot.nix
+		./hyprpaper.nix
 
 		./cursor.nix
 		./general.nix
