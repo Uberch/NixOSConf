@@ -3,6 +3,9 @@
 		lutris.enable =
 			lib.mkEnableOption "Enable Lutris game launcher";
 
+		obsidian.enable =
+			lib.mkEnableOption "Enable obsidian";
+
 		hyprland = {
 			enable =
 				lib.mkEnableOption "Enables hyprland module for user";

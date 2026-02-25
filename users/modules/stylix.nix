@@ -10,7 +10,7 @@
 		polarity = "dark";
 		targets.nixvim.enable = false;
 		cursor = {
-			size = 10;
+			size = 16;
 			package = pkgs.bibata-cursors;
 			name = "Bibata-Modern-Ice";
 		};
