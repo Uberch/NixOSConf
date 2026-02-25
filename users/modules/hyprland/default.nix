@@ -3,7 +3,6 @@
 		./input
 
 		# Hypr ecosystem
-		./hyprcursor.nix
 		./hyprlock.nix
 		./hyprshot.nix
 		./hyprpaper.nix

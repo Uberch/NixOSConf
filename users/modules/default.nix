@@ -10,6 +10,7 @@
 		./general_packages.nix
 		./git.nix
 		./lutris.nix
+		./obsidian.nix
 		./ranger.nix
 		./ssh.nix
 		./stylix.nix
