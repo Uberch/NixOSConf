@@ -6,6 +6,7 @@
 		./hyprlock.nix
 		./hyprshot.nix
 		./hyprpaper.nix
+		./waybar.nix
 
 		./cursor.nix
 		./general.nix
