@@ -1,4 +1,4 @@
-{ lib, config, unstablePkgs, ... }: {
+{ lib, config, unstablePkgs, pkgs, ... }: {
 	config = lib.mkIf config.hyprland.enable {
 		wayland.windowManager.hyprland = {
 			enable = true;
@@ -6,6 +6,9 @@
 			settings = {
 				exec-once = [
 					"~/.config/waybar/launch.sh"
+					"firefox"
+					"Telegram"
+					"kitty"
 				];
 
 				general = {
