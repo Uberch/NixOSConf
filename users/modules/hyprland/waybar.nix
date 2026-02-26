@@ -22,6 +22,7 @@
 						"eDP-1"
 					];
 					modules-left = [
+						"clock"
 						"network"
 						"bluetooth"
 					];
@@ -35,6 +36,28 @@
 					];
 
 					# Module definitions
+					# General
+					"hyprland/workspaces" = {
+						persistent-workspaces = {
+							"*" = 10;
+						};
+					};
+					"clock" = {
+						"format" = "{:%H:%M %a %d.%m}";
+						# "on-click" = "flatpak run com.ml4w.calendar",
+						"timezone" = "";
+						"tooltip" = false;
+					};
+					"keyboard-state" = {
+						# device-path = "/dev/input/event7";
+						numlock = true;
+						capslock = true;
+						format = "{name} {icon}  ";
+						format-icons = {
+							"locked" = "*";
+							"unlocked" = "_";
+						};
+					};
 					# Network
 					"network" = {
 						"format" = "{ifname}";
@@ -55,22 +78,6 @@
 						"interval" = 30;
 						"on-click" = "blueman-manager";
 						"format-no-controller" = "";
-					};
-					# General
-					"hyprland/workspaces" = {
-						persistent-workspaces = {
-							"*" = 10;
-						};
-					};
-					"keyboard-state" = {
-						# device-path = "/dev/input/event7";
-						numlock = true;
-						capslock = true;
-						format = "{name} {icon}  ";
-						format-icons = {
-							"locked" = "*";
-							"unlocked" = "_";
-						};
 					};
 					# Hardware
 					"group/hardware" = {
@@ -127,7 +134,6 @@
 				};
 			};
 			style = let
-					# @define-color backgroundlight @color8;
 					# @define-color backgrounddark #FFFFFF;
 					# @define-color workspacesbackground1 @color8;
 					# @define-color workspacesbackground2 #FFFFFF;
@@ -137,6 +143,7 @@
 					# @define-color textcolor3 #FFFFFF;
 					# @define-color iconcolor #FFFFFF;
 				colors = ''
+					@define-color backgroundlight @color8;
 
 					@define-color blur_background rgba(26, 17, 17, 0.3);
 					@define-color blur_background8 rgba(26, 17, 17, 0.8);
@@ -194,8 +201,10 @@
 				general = ''
 					* {
 						font-family: "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+						font-size: 14px;
 						border: none;
 						border-radius: 0px;
+						font-style: normal;
 					}
 
 					.modules-left {
@@ -208,6 +217,10 @@
 
 					.modules-right > widget:last-child > #workspaces {
 						margin-right: 0;
+					}
+
+					#clock {
+						color:@iconcolor;
 					}
 				'';
 				workspaces = ''
@@ -258,7 +271,6 @@
 					#disk,#memory,#cpu,#language {
 						margin:3px;
 						padding:0px;
-						font-size:16px;
 						color:@iconcolor;
 					}
 
@@ -268,8 +280,7 @@
 
 					#battery {
 						background-color: @backgroundlight;
-						font-size: 16px;
-						color: @textcolor2;
+						color:@iconcolor;
 						border-radius: 15px;
 						padding: 2px 15px 0px 10px;
 						margin: 8px 15px 8px 0px;
@@ -277,13 +288,13 @@
 					}
 
 					#battery.charging, #battery.plugged {
-						color: @textcolor2;
+						color:@iconcolor;
 						background-color: @backgroundlight;
 					}
 
 					#battery.critical:not(.charging) {
 						background-color: #f53c3c;
-						color: @textcolor3;
+						color:@iconcolor;
 						animation-name: blink;
 						animation-duration: 0.5s;
 						animation-timing-function: linear;
@@ -294,8 +305,7 @@
 				network = ''
 					#network {
 						background-color: @backgroundlight;
-						font-size: 16px;
-						color: @textcolor2;
+						color:@iconcolor;
 						border-radius: 15px;
 						padding: 2px 10px 0px 10px;
 						margin: 8px 15px 8px 0px;
@@ -304,18 +314,17 @@
 
 					#network.ethernet {
 						background-color: @backgroundlight;
-						color: @textcolor2;
+						color:@iconcolor;
 					}
 
 					#network.wifi {
 						background-color: @backgroundlight;
-						color: @textcolor2;
+						color:@iconcolor;
 					}
 					
 					#bluetooth, #bluetooth.on, #bluetooth.connected {
 						background-color: @backgroundlight;
-						font-size: 16px;
-						color: @textcolor2;
+						color:@iconcolor;
 						border-radius: 15px;
 						padding: 2px 10px 0px 10px;
 						margin: 8px 15px 8px 0px;
@@ -339,9 +348,9 @@
 				
 				tooltip {
 					border-radius: 16px;
-					background-color: @backgroundlight;
+					background-color: @background;
 					opacity:0.9;
-					padding:20px;
+					padding:30px;
 					margin:0px;
 				}
 
@@ -355,7 +364,6 @@
 					padding: 2px 10px 0px 10px;
 					border-radius: 12px;
 					color:@textcolor2;
-					font-size:16px;
 					font-weight:normal;
 					opacity:0.8;
 				}
