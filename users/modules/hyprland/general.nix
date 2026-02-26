@@ -4,6 +4,10 @@
 			enable = true;
 			package = unstablePkgs.hyprland;
 			settings = {
+				exec-once = [
+					"~/.config/waybar/launch.sh"
+				];
+
 				general = {
 					border_size = 3;
 					gaps_in = 3;

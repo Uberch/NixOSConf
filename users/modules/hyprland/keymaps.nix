@@ -11,6 +11,7 @@
 						", L, resizeactive, 100 0"
 						", S, swapsplit"
 						", D, togglesplit"
+						", B, exec, ~/.config/waybar/launch.sh"
 					];
 					bind = [
 						", Q, submap, reset"
