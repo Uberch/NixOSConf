@@ -60,7 +60,7 @@
 					"$sup, 7, workspace, 7"
 					"$sup, 8, workspace, 8"
 					"$sup, 9, workspace, 9"
-					"$sup, 0, workspace, 0"
+					"$sup, 0, workspace, 10"
 					"$sup, Tab, workspace, m+1"
 					"$sup $sft, Tab, workspace, m-1"
 
@@ -74,7 +74,7 @@
 					"$sup $sft, 7, movetoworkspace, 7"
 					"$sup $sft, 8, movetoworkspace, 8"
 					"$sup $sft, 9, movetoworkspace, 9"
-					"$sup $sft, 0, movetoworkspace, 0"
+					"$sup $sft, 0, movetoworkspace, 10"
 
 					# Applications
 					"$sup, $ret, exec, kitty"
