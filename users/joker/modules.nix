@@ -4,4 +4,5 @@
 		inputMode = "game";
 	};
 	lutris.enable = true;
+	obsidian.enable = false;
 }
