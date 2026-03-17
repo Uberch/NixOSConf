@@ -37,6 +37,11 @@
 				port = 2222;
 				identityFile = "${identityDir}/DevOps/key";
 			};
+			# vpn = {
+			# 	user = "root";
+			# 	hostname = "";
+			# 	identityFile = "${identityDir}/vpn/key";
+			# };
 		};
 	};
 }

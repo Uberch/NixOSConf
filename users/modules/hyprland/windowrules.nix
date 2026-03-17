@@ -20,6 +20,12 @@
 				fullscreen = "on";
 			}
 			{
+				name = "vpn";
+				"match:title" = "AmneziaVPN";
+				workspace = 4;
+				fullscreen = "on";
+			}
+			{
 				name = "chilly_firefox";
 				"match:tag" = "chill*";
 				workspace = 2;

@@ -21,4 +21,6 @@
 	};
 
 	system.stateVersion = stateVersion;
+
+	programs.amnezia-vpn.enable = true;
 }
