@@ -7,6 +7,7 @@
 				exec-once = [
 					"~/.config/waybar/launch.sh"
 					"Telegram"
+					"AmneziaVPN"
 					"firefox"
 					"kitty"
 				];
