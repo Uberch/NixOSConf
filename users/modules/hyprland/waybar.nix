@@ -30,6 +30,7 @@
 						"hyprland/workspaces"
 					];
 					modules-right = [
+						"pulseaudio"
 						"group/hardware"
 						"hyprland/language"
 						"battery"
@@ -52,27 +53,27 @@
 						# device-path = "/dev/input/event7";
 						numlock = true;
 						capslock = true;
-						format = "{name} {icon}  ";
+						format = "{name} {icon}";
 						format-icons = {
-							"locked" = "*";
-							"unlocked" = "_";
+							"locked" = " ";
+							"unlocked" = " ";
 						};
 					};
 					# Network
 					"network" = {
 						"format" = "{ifname}";
-						"format-wifi" = "{essid} ({signalStrength}%)";
+						"format-wifi" = "  {essid} ({signalStrength}%)";
 						"format-ethernet" = "{ifname}";
 						"format-disconnected" = "Disconnected";
 						"tooltip-format" = "{ifname} via {gwaddri}";
-						"tooltip-format-wifi" = "{ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}";
+						"tooltip-format-wifi" = "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}";
 						"tooltip-format-ethernet" = "{ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}";
 						"tooltip-format-disconnected" = "Disconnected";
 						"max-length" = 50;
 						"on-click" = "nmtui";
 					};
 					"bluetooth" = {
-						"format" = "{status}";
+						"format" = " {status}";
 						"format-disabled" = "";
 						"format-off" = "";
 						"interval" = 30;
@@ -108,28 +109,32 @@
 						# on-click = "~/.config/ml4w/settings/system-monitor.sh";
 					};
 					"hyprland/language" = {
-						format = "K {short}";
+						format = "Kbd {short}";
 					};
 					# Battery
 					"battery" = {
-						states = {
-							# "good" = 95;
-							"warning" = 30;
-							"critical" = 15;
+						"states" = {
+							"good" = 80;
+							"warning" = 50;
+							"critical" = 20;
 						};
 						format = "{icon} {capacity}%";
-						format-charging = "C {capacity}%";
-						format-plugged = "P {capacity}%";
-						format-alt = "{icon} {time}";
-						# "format-good": "";
-						# "format-full": "";
-						"format-icons" = [
-							"! "
-							"L "
-							"M "
-							"H "
-							"F "
-						];
+						format-charging = " {capacity}%";
+						format-plugged = " {capacity}%";
+						"format-icons" = [" " " " " " " " " "];
+					};
+					# Sound
+					"pulseaudio" = {
+						"format" = "{icon} {volume}%";
+						"format-bluetooth" = " {icon} {volume}%";
+						"format-bluetooth-muted" = " {icon} {format_source}";
+						"format-muted" = "mute";
+						"format-source" = " {volume}%";
+						"format-source-muted" = " ";
+						"format-icons" = {
+							"default" = ["" " " " "];
+						};
+						"on-click" = "pavucontrol";
 					};
 				};
 			};

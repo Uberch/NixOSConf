@@ -77,7 +77,7 @@
 			"home-manager-options.extranix.com"
 		];
 	in {
-		enable = true;
+		enable = false;
 		# whitelist = hostlist;
 	};
 }

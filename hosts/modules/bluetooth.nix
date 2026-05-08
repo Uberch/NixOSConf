@@ -4,5 +4,6 @@ config = lib.mkIf config.bluetooth.enable {
 		enable = true;
 		powerOnBoot = true;
 	};
+	services.blueman.enable = true;
 };
 }
