@@ -1,5 +1,23 @@
 { lib, config, unstablePkgs, pkgs, ... }: {
 	config = lib.mkIf config.hyprland.enable {
+		home.packages = with pkgs; [
+			# Nerd Fonts (Recommended for icons/terminals)
+			nerd-fonts.fira-code
+			nerd-fonts.droid-sans-mono
+			nerd-fonts.hack
+			
+			# Standard fonts
+			noto-fonts
+			noto-fonts-color-emoji
+			font-awesome
+
+			pavucontrol
+			brightnessctl
+			playerctl
+			pulseaudio
+		];
+		fonts.fontconfig.enable = true;
+
 		wayland.windowManager.hyprland = {
 			enable = true;
 			package = unstablePkgs.hyprland;
