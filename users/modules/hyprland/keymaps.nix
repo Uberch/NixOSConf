@@ -17,6 +17,19 @@
 						", Q, submap, reset"
 					];
 				};
+				# Submap for controlling media
+				media.settings = {
+					bind = [
+						", K, exec, playerctl play-pause"
+
+						", N, exec, playerctl next"
+						", P, exec, playerctl previous"
+
+						", S, exec, playerctl shuffle Toggle"
+
+						", Q, submap, reset"
+					];
+				};
 			};
 			settings = {
 				binds = {
@@ -104,6 +117,7 @@
 
 					# Submaps
 					"$sup, R, submap, resize"
+					"$sup, M, submap, media"
 					
 					# Fn keys
 					", XF86MonBrightnessUp, exec, brightnessctl -q s +5%"
@@ -111,10 +125,6 @@
 					", XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
 					", XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"
 					", XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
-					", XF86AudioPlay, exec, playerctl play-pause"
-					", XF86AudioPause, exec, playerctl pause"
-					", XF86AudioNext, exec, playerctl next"
-					", XF86AudioPrev, exec, playerctl previous"
 					", XF86AudioMicMute, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle"
 
 					", code:238, exec, brightnessctl -d smc::kbd_backlight s +10"

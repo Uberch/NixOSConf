@@ -14,6 +14,7 @@
 		./general_packages.nix
 		./kanata.nix
 		./localization.nix
+		./logind.nix
 		./networking.nix
 		./opengl.nix
 		./sshd.nix
