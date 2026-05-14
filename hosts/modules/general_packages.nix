@@ -2,11 +2,11 @@
 	nixpkgs.config.allowUnfree = true;
 
 	environment.systemPackages = with pkgs; [
+		home-manager
 		git
 		openssh
-		home-manager
+		ranger
 		tmux
 		zapret
-		ranger
 	];
 }
