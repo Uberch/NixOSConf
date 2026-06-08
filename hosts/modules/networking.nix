@@ -124,6 +124,31 @@
 							key-mgmt = "wpa-eap";
 						};
 					};
+					dacha = {
+						connection = {
+							id = "dacha";
+							interface-name = "wlp0s20f3";
+							timestamp = "1780837056";
+							type = "wifi";
+							uuid = "be205a3d-5b21-4191-80ac-94658f0a350d";
+						};
+						ipv4 = {
+							method = "auto";
+						};
+						ipv6 = {
+							addr-gen-mode = "default";
+							method = "auto";
+						};
+						wifi = {
+							mode = "infrastructure";
+							ssid = "TP-Link_2AA6_5G";
+						};
+						wifi-security = {
+							auth-alg = "open";
+							key-mgmt = "wpa-psk";
+							psk = "98252855";
+						};
+					};
 				};
 			};
 		};

@@ -126,7 +126,7 @@
 					# Sound
 					"pulseaudio" = {
 						"format" = "{icon} {volume}%";
-						"format-bluetooth" = " {icon} {volume}%";
+						"format-bluetooth" = " {icon}  {volume}%";
 						"format-bluetooth-muted" = " {icon} {format_source}";
 						"format-muted" = "mute";
 						"format-source" = " {volume}%";
