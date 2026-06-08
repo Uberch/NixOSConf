@@ -1,7 +1,7 @@
-{ config, lib, ... }: {
+{ config, lib, pkgs, ... }: {
 	config = lib.mkIf config.obsidian.enable {
+		home.packages = [ pkgs.obsidian ];
 		programs.obsidian = {
-			enable = true;
 			defaultSettings = {
 				app = {
 					# Editor
