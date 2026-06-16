@@ -8,6 +8,7 @@
 		./zapret
 
 		./bluetooth.nix
+		./documentation.nix
 		./dns.nix
 		./experimental.nix
 		./garbage.nix
