@@ -68,6 +68,8 @@
 
 				gopls.enable = true;
 
+				ccls.enable = true;
+
 				basedpyright = {
 					enable = true;
 					analysis = {
@@ -87,6 +89,14 @@
 					servers = [ "nixd" ];
 				};
 				extraDiagnostics.enable = true;
+			};
+
+			clang = {
+				enable = true;
+				lsp = {
+					enable = true;
+					servers = [ "ccls" ];
+				};
 			};
 
 			go = {

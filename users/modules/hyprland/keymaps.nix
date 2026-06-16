@@ -103,6 +103,11 @@
 							cmd = "Telegram";
 						}
 						{
+							key = "o";
+							desc = "Obsidian";
+							cmd = "obsidian";
+						}
+						{
 							key = "s";
 							desc = "Search application";
 							cmd = "rofi -show drun -replace -i";
