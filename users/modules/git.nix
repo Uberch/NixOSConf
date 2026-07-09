@@ -8,6 +8,10 @@
 				email = "vam.molch@gmail.com";
 			};
 
+			init = {
+				defaultBranch = "main";
+			};
+
 			alias = {
 				a = "add";
 				b = "branch";
