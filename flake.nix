@@ -3,89 +3,34 @@
 
 	inputs = {
 		# General package repo
-		nixpkgs.url = "github:nixos/nixpkgs/release-25.11";
-		
-		unstablePkgs = {
-			url = "github:nixos/nixpkgs/nixos-unstable";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		nixpkgs.url = "github:nixos/nixpkgs/release-26.05";
+		unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+		flake-parts.url = "github:hercules-ci/flake-parts";
+		import-tree.url = "github:vic/import-tree";
 
 		# Home-manager
 		home-manager = {
 			url = "github:nix-community/home-manager/release-25.11";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-
 		# Stylix
 		stylix = {
 			url = "github:nix-community/stylix/release-25.11";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-
 		# Nixvim for system-wide general-purpose file editing
 		nixvim = {
 			url = "github:nix-community/nixvim/nixos-25.11";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-
 		# NVF especially for development
 		nvf = {
 			url = "github:notashelf/nvf";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-
-		# Hyprland
-		# hyprland = {
-		# 	url = "github:hyprwm/Hyprland";
-		# 	inputs.nixpkgs.follows = "nixpkgs";
-		# };
 	};
 
-	outputs = {
-			nixpkgs,
-			home-manager,
-			stylix,
-			nixvim,
-			nvf,
-			unstablePkgs,
-			...
-			}: let
-		# General variables
-		system = "x86_64-linux";
-		StateVersion = "25.11";
-		hosts = [
-			{ hostname = "archivist";	stateVersion = StateVersion;
-				users = [ "avatar" ]; }
-			{ hostname = "apprentice"; stateVersion = StateVersion;
-				users = [ "uber" ]; }
-			{ hostname = "iso";			stateVersion = StateVersion;
-				users = []; }
-		];
-
-		# Function to make system configuration
-		makeSystem = { hostname, stateVersion, users }: nixpkgs.lib.nixosSystem {
-			inherit system;
-			specialArgs = {
-				unstablePkgs = unstablePkgs.outputs.legacyPackages."${system}";
-				inherit hostname users stateVersion nvf;
-			};
-
-			modules = [
-				./hardware-configuration.nix
-				./hosts
-				./users
-				home-manager.nixosModules.default
-				nixvim.nixosModules.nixvim
-				stylix.nixosModules.stylix
-			];
-		};
-	in {
-		# Make nixos configurations
-		nixosConfigurations = nixpkgs.lib.foldl' (configs: host:
-			configs // {
-				"${host.hostname}" = makeSystem {
-					inherit (host) hostname stateVersion users;
-				};
-			}) {} hosts;
-	};
+	outputs = inputs:
+		inputs.flake-parts.lib.mkFlake { inherit inputs; }
+			(inputs.import-tree ./modules);
 }
