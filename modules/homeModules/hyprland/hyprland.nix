@@ -34,7 +34,6 @@
 			package = inputs.unstable.outputs.legacyPackages."x86_64-linux".hyprland;
 			settings = {
 				exec-once = [
-					"~/.config/waybar/launch.sh"
 					"Telegram"
 					"AmneziaVPN"
 					"firefox"

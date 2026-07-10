@@ -9,8 +9,6 @@
 			uber
 
 			inputs.home-manager.nixosModules.default
-			inputs.nixvim.nixosModules.default
-			inputs.stylix.nixosModules.default
 
 			bluetooth
 			git
@@ -19,6 +17,7 @@
 			neovim
 			networking
 			stylix
+			tailscale
 			tmux
 			utils
 			virtualisation

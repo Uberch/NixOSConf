@@ -1,5 +1,8 @@
-_: {
+{ inputs, ... }: {
 	flake.nixosModules.neovim = {
+		imports = [
+			inputs.nixvim.nixosModules.default
+		];
 		programs.nixvim = {
 			keymaps = [
 				{
