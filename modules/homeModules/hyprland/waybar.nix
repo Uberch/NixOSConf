@@ -1,18 +1,13 @@
 _: {
 	flake.homeModules.hyprlandWaybar = {
-		home.file.".config/waybar/launch.sh" = {
-			enable = true;
-			executable = true;
-			text = ''
-				killall waybar
-				pkill waybar
-				sleep 0.5
-
-				waybar
-			'';
-		};
 		programs.waybar = {
 			enable = true;
+			systemd = {
+				enable = true;
+				targets = [
+					"hyprland-session.target"
+				];
+			};
 			settings = {
 				mainBar = {
 					layer = "top";
@@ -30,7 +25,7 @@ _: {
 						"hyprland/workspaces"
 					];
 					modules-right = [
-						"pulseaudio"
+						# "pulseaudio"
 						"group/hardware"
 						"hyprland/language"
 						"battery"
@@ -39,6 +34,9 @@ _: {
 					# Module definitions
 					# General
 					"hyprland/workspaces" = {
+						active-only = false;
+						all-outputs = true;
+						format = "{name}";
 						persistent-workspaces = {
 							"*" = 10;
 						};
@@ -135,6 +133,7 @@ _: {
 							"default" = ["" " " " "];
 						};
 						"on-click" = "pavucontrol";
+						ignored-sinks = [ "Easy Effects Sink" ];
 					};
 				};
 			};

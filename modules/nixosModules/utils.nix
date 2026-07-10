@@ -1,5 +1,6 @@
 _: {
 	flake.nixosModules.utils = { pkgs, ...}: {
+		services.dbus.implementation = "dbus";
 		hardware.graphics = {
 			enable = true;
 			enable32Bit = true;
