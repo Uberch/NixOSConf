@@ -1,5 +1,5 @@
-{ lib, config, pkgs, ... }: {
-	config = lib.mkIf config.wifi.enable {
+_: {
+	flake.nixosModules.networking = { pkgs, ... }: {
 		systemd.services.wpa_supplicant.environment.OPENSSL_CONF =
 			pkgs.writeText "openssl.cnf"
 		''

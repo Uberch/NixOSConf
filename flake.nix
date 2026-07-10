@@ -2,28 +2,38 @@
 	description = "Basic system configuration";
 
 	inputs = {
-		# General package repo
+		# Packages
 		nixpkgs.url = "github:nixos/nixpkgs/release-26.05";
-		unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-		flake-parts.url = "github:hercules-ci/flake-parts";
-		import-tree.url = "github:vic/import-tree";
+		unstable = {
+			url = "github:nixos/nixpkgs/nixos-unstable";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 
-		# Home-manager
+		# Architecture
+		flake-parts = {
+			url = "github:hercules-ci/flake-parts";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+		import-tree = {
+			url = "github:vic/import-tree";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+
+		# Other
 		home-manager = {
-			url = "github:nix-community/home-manager/release-25.11";
+			url = "github:nix-community/home-manager/release-26.05";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		# Stylix
 		stylix = {
-			url = "github:nix-community/stylix/release-25.11";
+			url = "github:nix-community/stylix/release-26.05";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		# Nixvim for system-wide general-purpose file editing
+
+		# Neovim
 		nixvim = {
-			url = "github:nix-community/nixvim/nixos-25.11";
+			url = "github:nix-community/nixvim/nixos-26.05";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		# NVF especially for development
 		nvf = {
 			url = "github:notashelf/nvf";
 			inputs.nixpkgs.follows = "nixpkgs";
@@ -31,6 +41,13 @@
 	};
 
 	outputs = inputs:
-		inputs.flake-parts.lib.mkFlake { inherit inputs; }
-			(inputs.import-tree ./modules);
+		inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+			imports = [
+				inputs.home-manager.flakeModules.default
+				(inputs.import-tree ./modules)
+			];
+			systems = [
+				"x86_64-linux"
+			];
+		};
 }
