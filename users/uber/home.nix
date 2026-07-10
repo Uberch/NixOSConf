@@ -1,12 +1,11 @@
 {
-	programs.home-manager.enable = true;
-
 	imports = [
 		./home-packages.nix
 		./modules.nix
 		../modules
 	];
 
+	programs.home-manager.enable = true;
 	home = let
 		username = "uber";
 	in {

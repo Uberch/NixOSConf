@@ -6,7 +6,7 @@
 ```bash
 nix build .#nixosConfigurations.iso.config.system.build.isoImage
 ```
-After iso file builded, plug in USB drive and find its name with `lsbls`
+After iso file builded, plug in USB drive and find its name with `lsblk`
 
 Ensure it is unmounted
 ```bash

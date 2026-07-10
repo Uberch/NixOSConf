@@ -1,6 +1,9 @@
 _: {
-	flake.nixosModule.garbage = { pkgs, ... }: {
-		nixpkgs.config.allowUnfree = true;
+	flake.nixosModules.pkgs = { pkgs, ... }: {
+		nixpkgs = {
+			config.allowUnfree = true;
+			config.allowUnfreePredicate = true;
+		};
 
 		environment.systemPackages = with pkgs; [
 			git

@@ -1,5 +1,5 @@
 _: {
-	flake.nixosModule.kanata = {
+	flake.nixosModules.kanata = {
 		services.kanata = {
 			enable = true;
 			keyboards.homeMods = {
