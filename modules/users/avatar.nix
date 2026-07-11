@@ -12,7 +12,7 @@
 		};
 		home-manager = {
 			useGlobalPkgs = true;
-			users.uber = {
+			users.avatar = {
 				imports = [ self.homeModules.avatar ];
 			};
 		};
