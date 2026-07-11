@@ -1,8 +1,8 @@
 { self, ... }: {
-	flake.nixosModules.uber = {
-		users.users.uber = {
+	flake.nixosModules.avatar = {
+		users.users.avatar = {
 			isNormalUser = true;
-			description = "Main user for working/studying";
+			description = "User for ssh connection";
 			extraGroups = [
 				"networkmanager"
 				"wheel"
@@ -13,18 +13,14 @@
 		home-manager = {
 			useGlobalPkgs = true;
 			users.uber = {
-				imports = [ self.homeModules.uber ];
+				imports = [ self.homeModules.avatar ];
 			};
 		};
 	};
 
-	flake.homeModules.uber = { pkgs, ... }: {
+	flake.homeModules.avatar = {
 		imports = with self.homeModules; [
-			hyprland
-			hyprlandInputWork
 			bash
-			kitty
-			nvf
 			ranger
 			ssh
 			stylix
@@ -32,19 +28,13 @@
 		];
 		programs.home-manager.enable = true;
 		home = let
-			username = "uber";
+			username = "avatar";
 		in {
 			inherit username;
-			stateVersion = "25.05";
+			stateVersion = "26.05";
 			sessionVariables = {
 				EDITOR = "nvim";
 			};
-			packages = with pkgs; [
-				just
-				telegram-desktop
-				python3
-				obsidian
-			];
 		};
 	};
 }

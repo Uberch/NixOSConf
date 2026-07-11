@@ -4,39 +4,21 @@
 	inputs = {
 		# Packages
 		nixpkgs.url = "github:nixos/nixpkgs/release-26.05";
-		unstable = {
-			url = "github:nixos/nixpkgs/nixos-unstable";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
 		# Architecture
-		flake-parts = {
-			url = "github:hercules-ci/flake-parts";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
-		import-tree = {
-			url = "github:vic/import-tree";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		flake-parts.url = "github:hercules-ci/flake-parts";
+		import-tree.url = "github:vic/import-tree";
 
 		# Other
-		home-manager = {
-			url = "github:nix-community/home-manager/release-26.05";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
-		stylix = {
-			url = "github:nix-community/stylix/release-26.05";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		home-manager.url = "github:nix-community/home-manager/release-26.05";
+		stylix.url = "github:nix-community/stylix/release-26.05";
 
 		# Neovim
-		nixvim = {
-			url = "github:nix-community/nixvim/nixos-26.05";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		nixvim.url = "github:nix-community/nixvim/nixos-26.05";
 		nvf = {
 			url = "github:notashelf/nvf";
-			inputs.nixpkgs.follows = "nixpkgs";
+			inputs.nixpkgs.follows = "unstable";
 		};
 	};
 

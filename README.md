@@ -15,7 +15,9 @@ sudo umount /dev/sdX*
 
 And copy iso to the flash drive to obtain bootable drive
 ```bash
-sudo dd bs=4M conf=fsync oflag=direct status=progress if=<path-to-image> of=/dev/sdX
+sudo dd bs=4M conf=fsync \
+    oflag=direct status=progress \
+    if=<path-to-image> of=/dev/sdX
 ```
 
 ## Installing along with nixos from Bootable USB
@@ -29,13 +31,16 @@ cd NixOSConf
 Check disk names with `lsblk` and adjust disko.nix.
 Run disko to format storage:
 ```bash
-sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko disko.nix
+sudo nix --experimental-features "nix-command flakes" \
+    run github:nix-community/disko -- \
+    --mode disko disko.nix
 ```
 
 Generate configuration for hardware:
 ```bash
-sudo nixos-generate-config --root /mnt
-cp /mnt/etc/nixos/hardware-configuration.nix .
+sudo nixos-generate-config \
+    --root /mnt \
+    --dir modules/_hardware
 ```
 
 Install desired configuration:

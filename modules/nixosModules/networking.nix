@@ -20,11 +20,10 @@ _: {
 					"/root/network-manager.env"
 				];
 				profiles = {
-					"POCO X5 Pro 5G" = {
+					phone = {
 						connection = {
 							id = "phone";
 							interface-name = "wlp0s20f3";
-							timestamp = "1767863235";
 							type = "wifi";
 							uuid = "60ae425f-0131-4656-9421-bacf7f9a0fc5";
 						};
@@ -128,7 +127,6 @@ _: {
 						connection = {
 							id = "dacha";
 							interface-name = "wlp0s20f3";
-							timestamp = "1780837056";
 							type = "wifi";
 							uuid = "be205a3d-5b21-4191-80ac-94658f0a350d";
 						};

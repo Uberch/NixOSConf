@@ -5,7 +5,7 @@ _: {
 
 			enableDefaultConfig = false;
 
-			matchBlocks = let
+			settings = let
 				identityDir = "${config.home.homeDirectory}/.ssh/keys";
 			in {
 				"*" = {
