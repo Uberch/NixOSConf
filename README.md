@@ -27,14 +27,10 @@ git clone https://github.com/Uberch/NixOSConf
 cd NixOSConf
 ```
 
-Check disk names with `lsblk` and remember path to right device
-Check that disko intend to do without modifying: 
+Check disk names with `lsblk`, remember path to right device
+and run disko to format storage:
 ```bash
-disko --mode mount --flake .#<disko_config> --argstr device <path_to_device>
-```
-Run disko to format storage:
-```bash
-disko --mode disko --flake .#<disko_config> --argstr device <path_to_device>
+disko -m disko -f .#<disko_config> --argstr device <path_to_device>
 ```
 
 Generate configuration for hardware:
