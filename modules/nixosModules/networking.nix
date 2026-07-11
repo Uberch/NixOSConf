@@ -23,7 +23,6 @@ _: {
 					phone = {
 						connection = {
 							id = "phone";
-							interface-name = "wlp0s20f3";
 							type = "wifi";
 							uuid = "60ae425f-0131-4656-9421-bacf7f9a0fc5";
 						};
@@ -48,7 +47,6 @@ _: {
 					luba = {
 						connection = {
 							id = "luba";
-							interface-name = "wlp0s20f3";
 							type = "wifi";
 							uuid = "c945b956-8681-4330-b51b-a09f29e04d25";
 						};
@@ -73,7 +71,6 @@ _: {
 					maa = {
 						connection = {
 							id = "maa";
-							interface-name = "wlp0s20f3";
 							type = "wifi";
 							uuid = "ab42de0b-e80c-4535-be3c-09f7a60afd43";
 						};
@@ -126,7 +123,6 @@ _: {
 					dacha = {
 						connection = {
 							id = "dacha";
-							interface-name = "wlp0s20f3";
 							type = "wifi";
 							uuid = "be205a3d-5b21-4191-80ac-94658f0a350d";
 						};

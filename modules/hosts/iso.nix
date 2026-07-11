@@ -12,14 +12,43 @@
 			pkgs
 			kanata
 			neovim
-			networking
 			tmux
 			experimental
 		];
 	};
 
-	flake.nixosModules.iso = { pkgs, ...}: {
-		networking.hostName = "iso";
+	flake.nixosModules.iso = { pkgs, lib, ... }: {
+		users.users.nixos = {
+			name = "nixos";
+			description = "Live ISO user";
+			extraGroups = [
+				"networkmanager"
+				"wheel"
+			];
+		};
+		programs.bash = {
+			enable = true;
+			shellAliases = {
+				v = "nvim";
+				c = "clear";
+				ll = "ls -la";
+				rg = "ranger";
+				sdn = "systemctl poweroff";
+				rbt = "reboot";
+				g = "git";
+				t = "tmux";
+			};
+			interactiveShellInit = ''
+				set -o vi
+			'';
+		};
+		networking = {
+			hostName = "iso";
+			networkmanager.enable = lib.mkForce false;
+			wireless = {
+				enable = true;
+			};
+		};
 		system.stateVersion = "26.05";
 
 		# Configure keymap in X11
