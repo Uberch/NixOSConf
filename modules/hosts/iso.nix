@@ -4,10 +4,9 @@
 			inherit inputs;
 		};
 		modules = with self.nixosModules; [
+			"${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
 			../_hardware/hardware-configuration.nix
 			iso
-
-			root
 
 			git
 			pkgs
@@ -29,7 +28,7 @@
 			variant = "";
 		};
 
-		environment.systemPaackages = [
+		environment.systemPackages = [
 			pkgs.disko
 		];
 	};

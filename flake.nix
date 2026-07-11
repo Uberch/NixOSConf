@@ -13,6 +13,7 @@
 		# Other
 		home-manager.url = "github:nix-community/home-manager/release-26.05";
 		stylix.url = "github:nix-community/stylix/release-26.05";
+		disko.url = "github:nix-community/disko";
 
 		# Neovim
 		nixvim.url = "github:nix-community/nixvim/nixos-26.05";
@@ -24,12 +25,16 @@
 
 	outputs = inputs:
 		inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-			imports = [
-				inputs.home-manager.flakeModules.default
-				(inputs.import-tree ./modules)
+			imports = with inputs; [
+				disko.flakeModules.default
+				home-manager.flakeModules.default
+				(import-tree ./modules)
 			];
 			systems = [
 				"x86_64-linux"
 			];
+			perSystem = { config, pkgs, system, ... }: {
+				packages.iso = inputs.self.nixosConfigurations.iso.config.system.build.isoImage;
+			};
 		};
 }
