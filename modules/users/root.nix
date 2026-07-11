@@ -6,6 +6,22 @@
 				imports = [ self.homeModules.root ];
 			};
 		};
+		programs.bash = {
+			enable = true;
+			shellAliases = {
+				v = "nvim";
+				c = "clear";
+				ll = "ls -la";
+				rg = "ranger";
+				sdn = "systemctl poweroff";
+				rbt = "reboot";
+				g = "git";
+				t = "tmux";
+			};
+			interactiveShellInit = ''
+				set -o vi
+			'';
+		};
 	};
 
 	flake.homeModules.root = {

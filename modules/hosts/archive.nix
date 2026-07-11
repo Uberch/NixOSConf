@@ -18,6 +18,7 @@
 			neovim
 			networking
 			stylix
+			sshd
 			tailscale
 			tmux
 			utils

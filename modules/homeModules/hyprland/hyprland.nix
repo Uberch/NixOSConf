@@ -1,5 +1,19 @@
 { self, inputs, ... }: {
 	flake.homeModules.hyprland = { pkgs, ... }: {
+		programs.bash.bashrcExtra = ''
+			set -o vi
+
+			if [ -f ~/.env ]; then
+				export $(grep -v '^#\|^$' .env | xargs)
+				echo "Environment loaded"
+			fi
+
+			if [[ $(tty) == *"pts"* ]]; then
+				clear
+			else
+				start-hyprland
+			fi
+		'';
 		imports = with self.homeModules; [
 			hyprlandHyprlock
 			hyprlandHyprpaper

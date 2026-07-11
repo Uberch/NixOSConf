@@ -22,11 +22,9 @@
 		imports = with self.homeModules; [
 			bash
 			ranger
-			ssh
 			stylix
 			tmux
 		];
-		programs.home-manager.enable = true;
 		home = let
 			username = "avatar";
 		in {
