@@ -1,9 +1,11 @@
 { inputs, ... }: {
 	flake.nixosModules.neovim = {
 		imports = [
-			inputs.nixvim.nixosModules.default
+			inputs.nixvim.nixosModules.nixvim
 		];
 		programs.nixvim = {
+			enable = true;
+			defaultEditor = true;
 			keymaps = [
 				{
 					action = "<Esc>";

@@ -32,6 +32,7 @@
 		wayland.windowManager.hyprland = {
 			enable = true;
 			package = inputs.unstable.outputs.legacyPackages."x86_64-linux".hyprland;
+			configType = "hyprlang";
 			settings = {
 				exec-once = [
 					"Telegram"

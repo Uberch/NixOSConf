@@ -1,18 +1,17 @@
 { self, inputs, ... }: {
-	flake.nixosConfigurations.apprentice = inputs.nixpkgs.lib.nixosSystem {
+	flake.nixosConfigurations.archive = inputs.nixpkgs.lib.nixosSystem {
 		specialArgs = {
 			inherit inputs;
 		};
 		modules = with self.nixosModules; [
 			../_hardware/hardware-configuration.nix
-			apprentice
+			archive
 
 			root
-			uber
+			avatar
 
 			inputs.home-manager.nixosModules.default
 
-			bluetooth
 			git
 			pkgs
 			kanata
@@ -26,8 +25,8 @@
 		];
 	};
 
-	flake.nixosModules.apprentice = { pkgs, ... }: {
-		networking.hostName = "apprentice";
+	flake.nixosModules.archive = { pkgs, ... }: {
+		networking.hostName = "archive";
 		# Bootloader.
 		boot.loader = {
 			systemd-boot.enable = true;
@@ -40,9 +39,7 @@
 			variant = "";
 		};
 
-		system.stateVersion = "25.05";
-
-		programs.amnezia-vpn.enable = true;
+		system.stateVersion = "26.05";
 
 		environment.systemPackages = with pkgs; [
 			firefox-bin
