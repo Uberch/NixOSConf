@@ -34,7 +34,6 @@ _: {
 			];
 
 			extraConfig = ''
-				set -g set-clipboad on
 				bind f resize-pane -Z
 
 				bind S select-layout "${lapLayout}"
