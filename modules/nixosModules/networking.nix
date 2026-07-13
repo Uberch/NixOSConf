@@ -158,11 +158,11 @@ _: {
 							psk = "$DACHA_WIFI_PSWD";
 						};
 					};
-					dacha5G = {
+					dacha5g = {
 						connection = {
 							id = "dacha5g";
 							type = "wifi";
-							uuid = "be205a3d-5b21-4191-80ac-94658f0a350d";
+							uuid = "fec5db45-a96a-4e74-9592-b15eefdef399";
 							autoconnect = true;
 							autoconnect-retries = 0;
 							autoconnect-priority = 0;
