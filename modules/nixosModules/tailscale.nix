@@ -2,7 +2,6 @@ _: {
 	flake.nixosModules.tailscale = { config, pkgs, ... }: {
 		services.tailscale = {
 			enable = true;
-			authKeyFile = "/run/secrets/tailscale_key";
 		};
 		systemd.services.tailscale-autoconnect = {
 			description = "Automatic connection to tailscale network";

@@ -20,6 +20,7 @@
 			stylix
 			sshd
 			tailscale
+			teamspeak
 			tmux
 			utils
 			virtualisation
