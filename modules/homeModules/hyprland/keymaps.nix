@@ -51,6 +51,14 @@ _: {
 					"$sup, F, fullscreen"
 				];
 
+				# Ignore lock
+				bindl = [
+					", XF86AudioMicMute, exec, wpctl setmute @DEFAULT_SOURCE@ toggle"
+					", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SINK@ +5%"
+					", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SINK@ -5%"
+					", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
+					", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
+				];
 				bind = let
 					mkMenu = menu: let
 						configFile = builtins.toFile "config.yaml"
@@ -125,15 +133,10 @@ _: {
 					# Fn keys
 					", XF86MonBrightnessUp, exec, brightnessctl -q s +5%"
 					", XF86MonBrightnessDown, exec, brightnessctl -q s 5%-"
-					", XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
-					", XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"
-					", XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
-					", XF86AudioMicMute, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle"
 					", XF86AudioPlay, exec, playerctl play-pause"
 					", XF86AudioPause, exec, playerctl pause"
 					", XF86AudioNext, exec, playerctl next"
 					", XF86AudioPrev, exec, playerctl previous"
-					", XF86AudioMicMute, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle"
 
 					", code:238, exec, brightnessctl -d smc::kbd_backlight s +10"
 					", code:237, exec, brightnessctl -d smc::kbd_backlight s 10-"

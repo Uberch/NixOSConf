@@ -23,6 +23,7 @@
 			tmux
 			utils
 			virtualisation
+			pipewire
 		];
 	};
 
