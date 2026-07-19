@@ -39,7 +39,6 @@
 			pavucontrol
 			brightnessctl
 			playerctl
-			pulseaudio
 		];
 		fonts.fontconfig.enable = true;
 

@@ -1,4 +1,4 @@
-_: {
+{ inputs, ... }: {
 	flake.homeModules.hyprlandWaybar = {
 		programs.waybar = {
 			enable = true;
@@ -25,7 +25,7 @@ _: {
 						"hyprland/workspaces"
 					];
 					modules-right = [
-						# "pulseaudio"
+						"pulseaudio"
 						"group/hardware"
 						"hyprland/language"
 						"battery"
@@ -133,7 +133,6 @@ _: {
 							"default" = ["" " " " "];
 						};
 						"on-click" = "pavucontrol";
-						ignored-sinks = [ "Easy Effects Sink" ];
 					};
 				};
 			};
