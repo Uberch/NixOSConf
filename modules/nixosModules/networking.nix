@@ -165,7 +165,7 @@ _: {
 							uuid = "fec5db45-a96a-4e74-9592-b15eefdef399";
 							autoconnect = true;
 							autoconnect-retries = 0;
-							autoconnect-priority = 0;
+							autoconnect-priority = 1;
 						};
 						ipv4 = {
 							method = "auto";

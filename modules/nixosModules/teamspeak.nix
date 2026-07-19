@@ -1,0 +1,8 @@
+_: {
+	flake.nixosModules.teamspead = {
+		services.teamspeak3 = {
+			enable = true;
+			openFirewall = true;
+		};
+	};
+}
