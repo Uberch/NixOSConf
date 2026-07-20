@@ -1,44 +1,14 @@
 _: {
-	flake.homeModules.bash = { config, ... }: {
-		config = {
-			programs.bash = {
-				enable = true;
-				shellAliases =
-				let
-					flake_path = "${config.home.homeDirectory}/nix";
-				in {
-					# General purpose
-					v = "$EDITOR";
-					c = "clear";
-					ll = "ls -la";
-					rg = "ranger";
-					nixpy = "nix-shell -p python3";
-					nixgo = "nix-shell -p gcc";
-
-					# Power managment
-					sdn = "systemctl poweroff";
-					rbt = "reboot";
-
-					# Nix-related
-					rebuild = "sudo nixos-rebuild switch --flake ${flake_path}";
-					nixtest = "sudo nixos-rebuild test --flake ${flake_path}";
-					buildIso = ''
-						nix build ${flake_path}#nixosConfigurations.iso.config.system.build.isoImage
-					'';
-
-					# VPN
-					vpnup = "sudo WG_QUICK_USERSPACE_IMPLEMENTATION=amneziawg-go awg-quick up amn0";
-					vpndown = "sudo awg-quick down amn0";
-					
-					# Git
-					g = "git";
-
-					# Tmux
-					tn = "tmux new-session";
-					ta = "tmux attach";
-					tl = "tmux list-sessions";
-					tk = "tmux kill-server";
-				};
+	flake.homeModules.bash = {
+		programs.bash = {
+			enable = true;
+			sessionVariables = {
+				SOPS_AGE_KEY_FILE = "$HOME/.config/sops/age/keys.txt";
+			};
+			shellAliases = {
+				# VPN
+				vpnup = "sudo WG_QUICK_USERSPACE_IMPLEMENTATION=amneziawg-go awg-quick up amn0";
+				vpndown = "sudo awg-quick down amn0";
 			};
 		};
 	};

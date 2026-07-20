@@ -8,6 +8,7 @@
 			../_hardware/hardware-configuration.nix
 			iso
 
+			bash
 			git
 			pkgs
 			kanata

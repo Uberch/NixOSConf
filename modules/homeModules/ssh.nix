@@ -1,12 +1,14 @@
 _: {
-	flake.homeModules.ssh = { config,  ... }: {
+	flake.homeModules.ssh = { osConfig, ... }: {
 		programs.ssh = {
 			enable = true;
 
 			enableDefaultConfig = false;
-
+			includes = [
+				osConfig.sops.templates."ssh-vps-config".path
+			];
 			settings = let
-				identityDir = "${config.home.homeDirectory}/.ssh/keys";
+				identityDir = "~/.ssh/keys";
 			in {
 				"*" = {
 					hashKnownHosts = true;		# Hash stored known hosts

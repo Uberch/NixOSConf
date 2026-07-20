@@ -1,5 +1,5 @@
-{ self, ... }: {
-	flake.nixosModules.uber = {
+{ self, inputs, ... }: {
+	flake.nixosModules.uber = { config, ... }: {
 		users.users.uber = {
 			isNormalUser = true;
 			description = "Main user for working/studying";
@@ -12,8 +12,13 @@
 		};
 		home-manager = {
 			useGlobalPkgs = true;
+			extraSpecialArgs = { 
+				osConfig = config; # config берется из внешнего модуля NixOS
+			};
 			users.uber = {
-				imports = [ self.homeModules.uber ];
+				imports = [
+					self.homeModules.uber
+				];
 			};
 		};
 	};
