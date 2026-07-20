@@ -12,6 +12,7 @@
 
 			inputs.home-manager.nixosModules.default
 
+			amnezia
 			bluetooth
 			git
 			pkgs
@@ -42,8 +43,6 @@
 		};
 
 		system.stateVersion = "25.05";
-
-		programs.amnezia-vpn.enable = true;
 
 		environment.systemPackages = with pkgs; [
 			firefox-bin
