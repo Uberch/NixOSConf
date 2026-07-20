@@ -14,6 +14,7 @@
 		home-manager.url = "github:nix-community/home-manager/release-26.05";
 		stylix.url = "github:nix-community/stylix/release-26.05";
 		disko.url = "github:nix-community/disko";
+		sops-nix.url = "github:Mic92/sops-nix";
 
 		# Neovim
 		nixvim.url = "github:nix-community/nixvim/nixos-26.05";

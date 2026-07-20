@@ -12,6 +12,7 @@
 
 			inputs.home-manager.nixosModules.default
 
+			bash
 			git
 			pkgs
 			kanata

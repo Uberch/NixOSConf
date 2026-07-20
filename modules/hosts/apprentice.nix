@@ -7,12 +7,15 @@
 			../_hardware/hardware-configuration.nix
 			apprentice
 
+			sops
+
 			root
 			uber
 
 			inputs.home-manager.nixosModules.default
 
 			amnezia
+			bash
 			bluetooth
 			git
 			pkgs

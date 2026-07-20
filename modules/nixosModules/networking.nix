@@ -27,7 +27,7 @@ _: {
 							uuid = "60ae425f-0131-4656-9421-bacf7f9a0fc5";
 							autoconnect = true;
 							autoconnect-retries = 0;
-							autoconnect-priority = -1;
+							autoconnect-priority = 100;
 						};
 						ipv4 = {
 							method = "auto";
