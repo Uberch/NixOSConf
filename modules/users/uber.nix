@@ -1,4 +1,4 @@
-{ self, inputs, ... }: {
+{ self, ... }: {
 	flake.nixosModules.uber = { config, ... }: {
 		users.users.uber = {
 			isNormalUser = true;
@@ -9,11 +9,12 @@
 				"docker"
 				"input"
 			];
+			hashedPasswordFile = config.sops.secrets.uber_password_hash.path;
 		};
 		home-manager = {
 			useGlobalPkgs = true;
 			extraSpecialArgs = { 
-				osConfig = config; # config берется из внешнего модуля NixOS
+				sopsTemplates = config.sops.templates; # config берется из внешнего модуля NixOS
 			};
 			users.uber = {
 				imports = [

@@ -1,5 +1,5 @@
 { inputs, ... }: {
-	flake.nixosModules.sops = { pkgs, config, ... }: {
+	flake.nixosModules.sops-base = { pkgs, ... }: {
 		imports = [
 			inputs.sops-nix.nixosModules.sops
 		];
@@ -16,26 +16,21 @@
 				vpnIp = {};
 				headscalePort = {};
 				headscaleKey = {};
-			};
-			templates = {
-				"ssh-vps-config" = {
-					owner = "uber"; 
-					path = "/run/secrets/ssh-vps-config";
-					
-					# Пишем содержимое файла. sops автоматически подставит raw IP вместо placeholder
-					content = ''
-						Host vpn
-							HostName ${config.sops.placeholder.vpnIp}
-							User root
-							IdentityFile ~/.ssh/keys/vpn/key
-					'';
+				root_password_hash = {
+					neededForUsers = true;
 				};
-				"tailscale-env" = {
-					path = "/run/secrets/tailscale-env";
-					content = ''
-						TS_LOGIN_SERVER="http://${config.sops.placeholder.vpnIp}:${config.sops.placeholder.headscalePort}"
-					'';
+				uber_password_hash = {
+					neededForUsers = true;
 				};
+				joker_password_hash = {
+					neededForUsers = true;
+				};
+				avatar_password_hash = {
+					neededForUsers = true;
+				};
+				ssh_key_archive = {};
+				ssh_key_github = {};
+				ssh_key_vpn = {};
 			};
 		};
 	};
