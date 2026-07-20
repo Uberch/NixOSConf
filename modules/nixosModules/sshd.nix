@@ -1,5 +1,5 @@
 _: {
-	flake.nixosModules.sshd = { pkgs, ... }: {
+	flake.nixosModules.sshd = {
 		environment.enableAllTerminfo = true;
 		services.openssh = {
 			enable = true;

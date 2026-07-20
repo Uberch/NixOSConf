@@ -2,6 +2,9 @@ _: {
 	flake.nixosModules.bash = {
 		programs.bash = {
 			enable = true;
+			interactiveShellInit = ''
+				set -o vi
+			'';
 			shellAliases =
 			let
 				flake_path = "~/nix";

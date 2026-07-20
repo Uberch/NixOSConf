@@ -7,10 +7,10 @@
 			../_hardware/hardware-configuration.nix
 			apprentice
 
-			sops
 
 			root
 			uber
+			sops-ssh
 
 			inputs.home-manager.nixosModules.default
 
