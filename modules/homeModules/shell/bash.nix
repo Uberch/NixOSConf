@@ -25,6 +25,10 @@ _: {
 					buildIso = ''
 						nix build ${flake_path}#nixosConfigurations.iso.config.system.build.isoImage
 					'';
+
+					# VPN
+					vpnup = "sudo WG_QUICK_USERSPACE_IMPLEMENTATION=amneziawg-go awg-quick up amn0";
+					vpndown = "sudo awg-quick down amn0";
 					
 					# Git
 					g = "git";

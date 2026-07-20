@@ -49,7 +49,6 @@
 			settings = {
 				exec-once = [
 					"Telegram"
-					"AmneziaVPN"
 					"firefox"
 					"kitty"
 				];
