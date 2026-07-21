@@ -16,21 +16,23 @@
 				vpnIp = {};
 				headscalePort = {};
 				headscaleKey = {};
-				root_password_hash = {
+				# Password hashes
+				pswdhs_root = {
 					neededForUsers = true;
 				};
-				uber_password_hash = {
+				pswdhs_uber = {
 					neededForUsers = true;
 				};
-				joker_password_hash = {
+				pswdhs_joker = {
 					neededForUsers = true;
 				};
-				avatar_password_hash = {
+				pswdhs_avatar = {
 					neededForUsers = true;
 				};
-				ssh_key_archive = {};
-				ssh_key_github = {};
-				ssh_key_vpn = {};
+				# SSH keys
+				sshk_archive = {};
+				sshk_github = {};
+				sshk_vpn = {};
 			};
 		};
 	};

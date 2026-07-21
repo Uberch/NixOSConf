@@ -1,7 +1,7 @@
 { self, ... }: {
 	flake.nixosModules.avatar = { config, ... }: {
 		users.users.avatar = {
-			hashedPasswordFile = config.sops.secrets.avatar_password_hash.path;
+			hashedPasswordFile = config.sops.secrets.pswdhs_avatar.path;
 			isNormalUser = true;
 			description = "User for ssh connection";
 			extraGroups = [

@@ -3,14 +3,14 @@
 		nixosModules.sops-ssh = { config, ... }: {
 			imports = [ self.nixosModules.sops-base ];
 			sops.templates = let
-				placeholder = config.sops.placeholder;
+				plchldr = config.sops.placeholder;
 			in {
 				"ssh-vps-config" = {
 					owner = "uber"; 
 					path = "/run/secrets/ssh-vps-config";
 					content = ''
 						Host vpn
-							HostName ${placeholder.vpnIp}
+							HostName ${plchldr.vpnIp}
 							User root
 							IdentityFile ${config.sops.templates."ssh_id_vpn".path}
 					'';
@@ -18,17 +18,17 @@
 				"ssh_id_github" = {
 					owner = "uber";
 					path = "/run/secrets/ssh_id_github";
-					content = placeholder.ssh_key_github;
+					content = plchldr.sshk_github;
 				};
 				"ssh_id_archive" = {
 					owner = "uber";
 					path = "/run/secrets/ssh_id_archive";
-					content = placeholder.ssh_key_archive;
+					content = plchldr.sshk_archive;
 				};
 				"ssh_id_vpn" = {
 					owner = "uber";
 					path = "/run/secrets/ssh_id_vpn";
-					content = placeholder.ssh_key_vpn;
+					content = plchldr.sshk_vpn;
 				};
 			};
 		};
