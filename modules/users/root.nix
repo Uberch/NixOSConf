@@ -1,6 +1,6 @@
 { self, ... }: {
 	flake.nixosModules.root = { config, ... }: {
-		users.users.root.hashedPasswordFile = config.sops.secrets.root_password_hash.path;
+		users.users.root.hashedPasswordFile = config.sops.secrets.pswdhs_root.path;
 		home-manager = {
 			useGlobalPkgs = true;
 			users.root = {

@@ -9,7 +9,7 @@
 				"docker"
 				"input"
 			];
-			hashedPasswordFile = config.sops.secrets.uber_password_hash.path;
+			hashedPasswordFile = config.sops.secrets.pswdhs_uber.path;
 		};
 		home-manager = {
 			useGlobalPkgs = true;

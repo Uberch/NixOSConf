@@ -1,7 +1,7 @@
 { self, ... }: {
 	flake.nixosModules.joker = { config, ... }: {
 		users.users.joker = {
-			hashedPasswordFile = config.sops.secrets.joker_password_hash.path;
+			hashedPasswordFile = config.sops.secrets.pswdhs_joker.path;
 			isNormalUser = true;
 			description = "User for gaming";
 			extraGroups = [
