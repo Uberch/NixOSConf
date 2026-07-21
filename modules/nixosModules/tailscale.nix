@@ -6,7 +6,7 @@
 				"tailscale-env" = {
 					path = "/run/secrets/tailscale-env";
 					content = ''
-						TS_LOGIN_SERVER="https://${config.sops.placeholder.vpnIp}:${config.sops.placeholder.headscalePort}"
+						TS_LOGIN_SERVER="http://${config.sops.placeholder.vpnIp}:${config.sops.placeholder.headscalePort}"
 					'';
 				};
 			};
