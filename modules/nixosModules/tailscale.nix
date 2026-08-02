@@ -6,12 +6,17 @@
 				"tailscale-env" = {
 					path = "/run/secrets/tailscale-env";
 					content = ''
-						TS_LOGIN_SERVER="http://${config.sops.placeholder.vpnIp}:${config.sops.placeholder.headscalePort}"
+						TS_LOGIN_SERVER="${config.sops.placeholder.vpnUrl}"
 					'';
 				};
 			};
 		};
 		tailscale = { config, ... }: {
+			networking.firewall = {
+				enable = true;
+				trustedInterfaces = [ "tailscale0" ];
+				allowPing = true;
+			};
 			imports = [ self.nixosModules.sops-tailscale ];
 			services.tailscale = {
 				enable = true;

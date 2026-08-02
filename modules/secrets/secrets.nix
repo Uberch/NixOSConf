@@ -13,6 +13,7 @@
 			age.keyFile = "/var/lib/sops-nix/key.txt";
 
 			secrets = {
+				vpnUrl = {};
 				vpnIp = {};
 				headscalePort = {};
 				headscaleKey = {};
