@@ -12,16 +12,19 @@
 			};
 		};
 		tailscale = { config, ... }: {
+			imports = [ self.nixosModules.sops-tailscale ];
 			networking.firewall = {
 				enable = true;
 				trustedInterfaces = [ "tailscale0" ];
 				allowPing = true;
 			};
-			imports = [ self.nixosModules.sops-tailscale ];
 			services.tailscale = {
 				enable = true;
 				openFirewall = true;
 				authKeyFile = config.sops.secrets.headscaleKey.path;
+				extraUpFlags = [
+					"--accept-dns"
+				];
 				authKeyParameters ={
 					preauthorized = true;
 				};
