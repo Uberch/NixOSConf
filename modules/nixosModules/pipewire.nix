@@ -2,7 +2,7 @@ _: {
 	flake.nixosModules.pipewire = {
 		services.pipewire = {
 			enable = true;
-			pulse.enable = true; # This provides the PulseAudio API compatibility
+			pulse.enable = true;
 			jack.enable = true;
 			alsa = {
 				enable = true;
