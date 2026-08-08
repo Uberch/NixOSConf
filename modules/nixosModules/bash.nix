@@ -24,8 +24,8 @@ _: {
 				nixbuild = "sudo nixos-rebuild switch --flake ${flake_path}";
 				nixtest = "sudo nixos-rebuild test --flake ${flake_path}";
 				nixboot = "sudo nixos-rebuild boot --flake ${flake_path}";
-				buildIso = ''
-					nix build ${flake_path}#nixosConfigurations.iso.config.system.build.isoImage
+				nixiso = ''
+					sudo nix run github:nix-community/disko#disko-install -- --flake ${flake_path}#iso --disk main
 				'';
 				
 				# Git
