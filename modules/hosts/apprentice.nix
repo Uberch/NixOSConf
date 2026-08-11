@@ -40,9 +40,15 @@
 		};
 
 		# Configure keymap in X11
-		services.xserver.xkb = {
-			layout = "us";
-			variant = "";
+		services = {
+			xserver.xkb = {
+				layout = "us";
+				variant = "";
+			};
+			getty = {
+				autologinUser = "uber";
+				autologinOnce = true;
+			};
 		};
 
 		system.stateVersion = "25.05";

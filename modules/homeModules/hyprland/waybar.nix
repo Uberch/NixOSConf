@@ -1,4 +1,4 @@
-{ inputs, ... }: {
+_: {
 	flake.homeModules.hyprlandWaybar = {
 		programs.waybar = {
 			enable = true;

@@ -1,19 +1,5 @@
 { self, inputs, ... }: {
 	flake.homeModules.hyprland = { pkgs, ... }: {
-		programs.bash.bashrcExtra = ''
-			set -o vi
-
-			if [ -f ~/.env ]; then
-				export $(grep -v '^#\|^$' .env | xargs)
-				echo "Environment loaded"
-			fi
-
-			if [[ $(tty) == *"pts"* ]]; then
-				clear
-			else
-				start-hyprland
-			fi
-		'';
 		imports = with self.homeModules; [
 			hyprlandHyprlock
 			hyprlandHyprpaper
@@ -39,18 +25,57 @@
 			pavucontrol
 			brightnessctl
 			playerctl
+			
+			thunderbird
 		];
 		fonts.fontconfig.enable = true;
+
+		programs.bash.bashrcExtra = ''
+			set -o vi
+			clear
+			if [ "$(tty)" = "/dev/tty1" ]; then
+				exec start-hyprland
+			fi
+		'';
+
+		services = {
+			batsignal = {
+				enable = true;
+				extraArgs = [
+					"-p"
+					"-f 80"
+					"-F 'Hare kachat'"
+					"-w 20"
+					"-W 'Smotri'"
+					"-c 10"
+					"-C 'Alo Danya'"
+					"-d 5"
+					"-D 'DEBECH'"
+					"-m 60"
+				];
+			};
+			mako = {
+				enable = true;
+				settings = {
+					layer = "overlay";
+					"default-timeout" = 5000;
+					"ignore-timeout" = 1;
+				};
+			};
+		};
 
 		wayland.windowManager.hyprland = {
 			enable = true;
 			package = inputs.unstable.outputs.legacyPackages."x86_64-linux".hyprland;
 			configType = "hyprlang";
+			systemd.enable = true;
 			settings = {
 				exec-once = [
+					"hyprlock -q --immediate-render"
 					"Telegram"
 					"firefox"
 					"kitty"
+					"thunderbird"
 				];
 
 				general = {

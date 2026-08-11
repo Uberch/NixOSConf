@@ -20,8 +20,8 @@ _: {
 				fullscreen = "on";
 			}
 			{
-				name = "vpn";
-				"match:title" = "AmneziaVPN";
+				name = "thunderbird";
+				"match:class" = "thunderbird";
 				workspace = 4;
 				fullscreen = "on";
 			}
