@@ -7,7 +7,6 @@
 			../_hardware/hardware-configuration.nix
 			apprentice
 
-
 			root
 			uber
 			sops-ssh
@@ -26,7 +25,6 @@
 			tailscale
 			tmux
 			utils
-			virtualisation
 			pipewire
 		];
 	};
@@ -53,8 +51,8 @@
 
 		system.stateVersion = "25.05";
 
-		environment.systemPackages = with pkgs; [
-			firefox-bin
+		environment.systemPackages = [
+			pkgs.firefox-bin
 		];
 	};
 }

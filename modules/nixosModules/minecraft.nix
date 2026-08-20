@@ -16,8 +16,8 @@
 			];
 			services.minecraft-servers.servers.matcha = let
 				datapack = pkgs.fetchzip {
-					url = "https://cdn.modrinth.com/data/QI0EmgZ1/versions/2OaIqKKy/Matcha_Flavoured_1_03.zip";
-					sha512 = "sha512-z29tqhvtjeodN5ylwpztZgXEwKpj0dQ/gAw1Qm9DggogdHSxuUoorgE7tPCybzOAsCbbJ4lO4RGG8E6w/zaibQ==";
+					url = "https://cdn.modrinth.com/data/QI0EmgZ1/versions/E9rngRfK/Matcha_Flavoured_1_12.zip";
+					sha512 = "sha512-mG43oLYqsmbdQeBttPWHlb0iJAlb8ARVHh9WWgO6NTqI0/zB6gnMcAO2y7YKNn7pmDrGIys6Tk0ciM7ukKCPtA==";
 					stripRoot = false;
 				};
 			in {
