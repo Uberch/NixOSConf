@@ -1,8 +1,5 @@
 { self, inputs, ... }: {
 	flake.nixosConfigurations.apprentice = inputs.nixpkgs.lib.nixosSystem {
-		specialArgs = {
-			inherit inputs;
-		};
 		modules = with self.nixosModules; [
 			../_hardware/hardware-configuration.nix
 			apprentice
