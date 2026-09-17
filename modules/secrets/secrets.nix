@@ -18,6 +18,7 @@
 				temkaIp = {};
 				headscalePort = {};
 				headscaleKey = {};
+				runnerToken = {};
 				# SSH keys
 				sshk_archive = {};
 				sshk_github = {};

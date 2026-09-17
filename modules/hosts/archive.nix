@@ -11,6 +11,7 @@
 
 			bash
 			git
+			githubRunner
 			pkgs
 			kanata
 			neovim
