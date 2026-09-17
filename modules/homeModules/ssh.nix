@@ -5,16 +5,6 @@
 			sops.templates = let
 				plchldr = config.sops.placeholder;
 			in {
-				"ssh-vps-config" = {
-					owner = "uber"; 
-					path = "/run/secrets/ssh-vps-config";
-					content = ''
-						Host vpn
-							HostName ${plchldr.vpnIp}
-							User root
-							IdentityFile ${config.sops.templates."ssh_id_vpn".path}
-					'';
-				};
 				"ssh_id_github" = {
 					owner = "uber";
 					path = "/run/secrets/ssh_id_github";
@@ -25,10 +15,37 @@
 					path = "/run/secrets/ssh_id_archive";
 					content = plchldr.sshk_archive;
 				};
+				# Temka
+				"ssh_id_temka" = {
+					owner = "uber";
+					path = "/run/secrets/ssh_id_temka";
+					content = plchldr.sshk_temka;
+				};
+				"ssh-temka-config" = {
+					owner = "uber";
+					path = "/run/secrets/ssh-temka-config";
+					content = ''
+						Host temka
+							HostName ${plchldr.temkaIp}
+							User root
+							IdentityFile ${config.sops.templates."ssh_id_temka".path}
+						'';
+				};
+				# Own VPS
 				"ssh_id_vpn" = {
 					owner = "uber";
 					path = "/run/secrets/ssh_id_vpn";
 					content = plchldr.sshk_vpn;
+				};
+				"ssh-vps-config" = {
+					owner = "uber"; 
+					path = "/run/secrets/ssh-vps-config";
+					content = ''
+						Host vpn
+							HostName ${plchldr.vpnIp}
+							User root
+							IdentityFile ${config.sops.templates."ssh_id_vpn".path}
+					'';
 				};
 			};
 		};
@@ -39,6 +56,7 @@
 				enableDefaultConfig = false;
 				includes = [
 					sopsTemplates."ssh-vps-config".path
+					sopsTemplates."ssh-temka-config".path
 				];
 				settings = {
 					"*" = {
@@ -61,6 +79,7 @@
 				".ssh/id_github_key.pub".text = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOUrefZtJR8n8bw4uf4B8zq0IW3//kGchD0RIaYTCFjb uber@apprentice";
 				".ssh/id_archive_key.pub".text = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINdQ7mdG2RFYZZPfEQ146IXXdCNoxlVhxB8qHIOjWZOa uber@apprentice";
 				".ssh/id_vpn_key.pub".text = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHUVWuRsj4zdVeQeF9MXcjNFyJpPxmuKehpUx1m02C9C uber@apprentice";
+				".ssh/id_temka_key.pub".text = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKz4+TuAY8zaH/97W/l0/Aoxq76QdV7qvf21AXULazDe uber@apprentice";
 			};
 		};
 	};

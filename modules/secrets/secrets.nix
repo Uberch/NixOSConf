@@ -15,8 +15,14 @@
 			secrets = {
 				vpnUrl = {};
 				vpnIp = {};
+				temkaIp = {};
 				headscalePort = {};
 				headscaleKey = {};
+				# SSH keys
+				sshk_archive = {};
+				sshk_github = {};
+				sshk_vpn = {};
+				sshk_temka = {};
 				# Password hashes
 				pswdhs_root = {
 					neededForUsers = true;
@@ -30,10 +36,6 @@
 				pswdhs_avatar = {
 					neededForUsers = true;
 				};
-				# SSH keys
-				sshk_archive = {};
-				sshk_github = {};
-				sshk_vpn = {};
 			};
 		};
 	};
