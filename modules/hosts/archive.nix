@@ -9,6 +9,7 @@
 
 			inputs.home-manager.nixosModules.default
 
+			amnezia
 			bash
 			git
 			githubRunner
@@ -19,7 +20,6 @@
 			stylix
 			sshd
 			tailscale
-			teamspeak
 			tmux
 			utils
 			virtualisation
