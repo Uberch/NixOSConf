@@ -48,8 +48,9 @@
 
 		system.stateVersion = "25.05";
 
-		environment.systemPackages = [
-			pkgs.firefox-bin
+		environment.systemPackages = with pkgs; [
+			firefox-bin
+			codex
 		];
 	};
 }

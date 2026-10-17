@@ -19,6 +19,10 @@
 				headscalePort = {};
 				headscaleKey = {};
 				runnerToken = {};
+
+				wifi_env = {
+					format = "yaml";
+				};
 				# SSH keys
 				sshk_archive = {};
 				sshk_github = {};

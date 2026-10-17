@@ -46,13 +46,13 @@
 
 	outputs = inputs:
 		inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+			systems = [
+				"x86_64-linux"
+			];
 			imports = with inputs; [
 				disko.flakeModules.default
 				home-manager.flakeModules.default
 				(import-tree ./modules)
-			];
-			systems = [
-				"x86_64-linux"
 			];
 			perSystem = _: {
 				packages.iso = inputs.self.nixosConfigurations.iso.config.system.build.isoImage;

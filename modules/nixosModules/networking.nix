@@ -1,5 +1,6 @@
-_: {
-	flake.nixosModules.networking = { pkgs, ... }: {
+{ self, ... }: {
+	flake.nixosModules.networking = { pkgs, config, ... }: {
+		imports = [ self.nixosModules.sops-base ];
 		systemd.services.wpa_supplicant.environment.OPENSSL_CONF =
 			pkgs.writeText "openssl.cnf"
 		''
@@ -17,7 +18,7 @@ _: {
 			enable = true;
 			ensureProfiles = {
 				environmentFiles = [
-					"/root/network-manager.env"
+					config.sops.secrets.wifi_env.path
 				];
 				profiles = {
 					phone = {
@@ -44,7 +45,7 @@ _: {
 						wifi-security = {
 							auth-alg = "open";
 							key-mgmt = "wpa-psk";
-							psk = "$PHONE_WIFI_PSWD";
+							psk = "$pswd_phone";
 						};
 					};
 					luba = {
@@ -71,7 +72,7 @@ _: {
 						wifi-security = {
 							auth-alg = "open";
 							key-mgmt = "wpa-psk";
-							psk = "$LUBA_WIFI_PSWD";
+							psk = "$pswd_luba";
 						};
 					};
 					maa = {
@@ -98,14 +99,14 @@ _: {
 						wifi-security = {
 							auth-alg = "open";
 							key-mgmt = "wpa-psk";
-							psk = "$MAA_WIFI_PSWD";
+							psk = "$pswd_maa";
 						};
 					};
 					stud = {
 						"802-1x" = {
 							eap = "peap;";
-							identity = "$STUD_WIFI_IDNT";
-							password = "$STUD_WIFI_PSWD";
+							identity = "$id_stud";
+							password = "$pswd_stud";
 							phase2-auth = "mschapv2";
 						};
 						connection = {
@@ -155,7 +156,7 @@ _: {
 						wifi-security = {
 							auth-alg = "open";
 							key-mgmt = "wpa-psk";
-							psk = "$DACHA_WIFI_PSWD";
+							psk = "$pswd_dacha";
 						};
 					};
 					dacha5g = {
@@ -181,7 +182,33 @@ _: {
 						wifi-security = {
 							auth-alg = "open";
 							key-mgmt = "wpa-psk";
-							psk = "$DACHA_WIFI_PSWD";
+							psk = "$pswd_dacha";
+						};
+					};
+					fedor = {
+						connection = {
+							id = "fedor";
+							type = "wifi";
+							uuid = "918d7df6-e9d4-4644-8d80-f09b3592d174";
+							autoconnect = true;
+							autoconnect-retries = 0;
+							autoconnect-priority = 1;
+						};
+						ipv4 = {
+							method = "auto";
+						};
+						ipv6 = {
+							addr-gen-mode = "default";
+							method = "auto";
+						};
+						wifi = {
+							mode = "infrastructure";
+							ssid = "$id_fedor";
+						};
+						wifi-security = {
+							auth-alg = "open";
+							key-mgmt = "wpa-psk";
+							psk = "$pswd_fedor";
 						};
 					};
 				};
