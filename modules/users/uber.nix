@@ -26,6 +26,7 @@
 
 	flake.homeModules.uber = { pkgs, ... }: {
 		imports = with self.homeModules; [
+			pozor
 			hyprland
 			hyprlandInputWork
 			bash

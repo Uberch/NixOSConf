@@ -14,11 +14,14 @@
 			bash
 			bluetooth
 			git
+			pozor
 			pkgs
 			kanata
 			neovim
 			networking
 			stylix
+			steam
+			steam
 			tailscale
 			tmux
 			utils
@@ -51,6 +54,10 @@
 		environment.systemPackages = with pkgs; [
 			firefox-bin
 			codex
+			discord
+
+			vscode
+			stack
 		];
 	};
 }

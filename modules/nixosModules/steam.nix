@@ -16,7 +16,7 @@ _: {
 		};
 		environment = {
 			sessionVariables.STEAM_EXTRA_COMPAT_TOOLS_PATHS =
-				"/home/joker/.steam/root/compatibilitytools.d";
+				"/home/uber/.steam/root/compatibilitytools.d";
 		};
 	};
 }

@@ -6,7 +6,7 @@
 		nixpkgs.url = "github:nixos/nixpkgs/release-26.05";
 		unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-		# Architecture
+		# Repo structure
 		flake-parts = {
 			url = "github:hercules-ci/flake-parts";
 			inputs.nixpkgs-lib.follows = "nixpkgs";
